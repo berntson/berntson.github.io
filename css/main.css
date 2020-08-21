@@ -1,70 +1,43 @@
 body {
-    margin: auto;
-    max-width: 600px;
-    width: 95%;
-    background-color: #1a1a1a;
+    margin: 60px auto;
+    max-width: 800px;
+    width: 100%;
 }
-
-
-
-nav ul {
-    font-family:'Lora', 'Arial', 'Sans-Serif';
+nav ul, footer ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
     list-style: none;
-    font-weight: bold;  
-    text-align: right
+    font-weight: bold;
 }
-nav ul li {
-    margin-right: 20px;
+nav ul li, footer ul li {
     display: inline;
+    margin-right: 20px;
 }
-
-
 a {
-    text-decoration: none;
-    color: skyblue;
+    text-decoration: underline;
 }
 a:hover {
-    text-decoration: none;
-    color: skyblue;
+    text-decoration: underline;
 }
 h1 {
     font-size: 3em;
-    font-family:'Nothing You Could Do', 'Arial', 'Sans-Serif';
-    color: #ffffff;
-    
-}
-h2 {
-    text-decoration: none;
-    font-size: 1.5em;
-    font-family:'Lora', 'Arial', 'Sans-Serif';
-    color: #ffffff;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    font-size: 1em;
-    font-family:'Lora', 'Arial', 'Sans-Serif';
-    line-height: 2em;
-    color: #ffffff;
+    font-size: 1.5em;
+    line-height: 1.4em;
+    color: #333;
 }
-ol {
-    font-size: 1em;
-    font-family:'Lora', 'Arial', 'Sans-Serif';
-    line-height: 2em;
-    color: #ffffff;
-}
-ul {
-    font-size: 1em;
-    font-family:'Lora', 'Arial', 'Sans-Serif';
-    line-height: 2em;
-    color: #ffffff;
+footer {
+    border-top: 1px solid #d5d5d5;
+    font-size: .8em;
 }
 
-details {
-    font-size: 1em;
-    font-family:'Lora', 'Arial', 'Sans-Serif';
-    line-height: 2em;
-    color: #ffffff;
+ul.posts { 
+    margin: 20px auto 40px; 
+    font-size: 1.5em;
 }
 
-details summary::-webkit-details-marker {
-  display:none;
+ul.posts li {
+    list-style: none;
 }
