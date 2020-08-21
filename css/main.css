@@ -1,10 +1,11 @@
 body {
     margin: 60px auto;
-    max-width: 800px;
+    max-width: 600px;
     width: 90%;
+    background-color: #1a1a1a;
 }
 nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family:'Lora', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
@@ -15,20 +16,33 @@ nav ul li, footer ul li {
 }
 a {
     text-decoration: underline;
-    color: #333;
+    color: #ffffff;
 }
 a:hover {
     text-decoration: underline;
-    color: #333;
+    color: #ffffff;
 }
 h1 {
-    font-size: 2.5em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-size: 3.5em;
+    font-family:'Lora', 'Arial', 'Sans-Serif';
+    color: #ffffff;
+}
+h2 {
+    font-size: 1.5em;
+    font-family:'Lora', 'Arial', 'Sans-Serif';
+    color: #ffffff;
 }
 p {
-    font-size: 1em;
-    line-height: 1.4em;
-    color: #333;
+    font-size: 1.2em;
+    font-family:'Lora', 'Arial', 'Sans-Serif';
+    line-height: 1.5em;
+    color: #ffffff;
+}
+ol {
+    font-size: 1.2em;
+    font-family:'Lora', 'Arial', 'Sans-Serif';
+    line-height: 1.5em;
+    color: #ffffff;
 }
 footer {
     border-top: 1px solid #d5d5d5;
