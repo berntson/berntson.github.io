@@ -11,10 +11,11 @@ nav ul {
     font-family:'Lora', 'Arial', 'Sans-Serif';
     list-style: none;
     font-weight: bold;  
+    text-align: right
 }
 nav ul li {
-    float: right;
     margin-right: 20px;
+    display: inline;
 }
 
 
@@ -57,11 +58,13 @@ ul {
     color: #ffffff;
 }
 
-ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
+details {
+    font-size: 1em;
+    font-family:'Lora', 'Arial', 'Sans-Serif';
+    line-height: 2em;
+    color: #ffffff;
 }
 
-ul.posts li {
-    list-style: none;
+details summary::-webkit-details-marker {
+  display:none;
 }
