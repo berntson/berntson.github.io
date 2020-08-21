@@ -60,7 +60,7 @@ ul {
 }
 
 details {
-    font-size: .8em;
+    font-size: 1em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
     line-height: 2em;
     color: #ffffff;
@@ -75,10 +75,3 @@ details summary {
 
 
 
-
-details > summary {
-  list-style: none;
-}
-details > summary::-webkit-details-marker {
-  display: none;
-}
