@@ -1,31 +1,35 @@
 body {
-    margin: 60px auto;
+    margin: auto;
     max-width: 600px;
     width: 90%;
     background-color: #1a1a1a;
+    padding-top: 10%;
 }
 nav ul, footer ul {
+    margin-top:10%
     font-family:'Lora', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    float: right;
 }
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
 a {
-    text-decoration: underline;
-    color: #ffffff;
+    text-decoration: none;
+    color: skyblue;
 }
 a:hover {
-    text-decoration: underline;
-    color: #ffffff;
+    text-decoration: none;
+    color: skyblue;
 }
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
     color: #ffffff;
+    
 }
 h2 {
     font-size: 1.5em;
@@ -39,6 +43,12 @@ p {
     color: #ffffff;
 }
 ol {
+    font-size: 1.1em;
+    font-family:'Lora', 'Arial', 'Sans-Serif';
+    line-height: 2em;
+    color: #ffffff;
+}
+ul {
     font-size: 1.1em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
     line-height: 2em;
