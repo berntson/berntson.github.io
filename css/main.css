@@ -23,7 +23,7 @@ a:hover {
     color: #ffffff;
 }
 h1 {
-    font-size: 3.5em;
+    font-size: 3em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
     color: #ffffff;
 }
@@ -35,7 +35,7 @@ h2 {
 p {
     font-size: 1.1em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
-    line-height: 1.4em;
+    line-height: 2em;
     color: #ffffff;
 }
 ol {
