@@ -45,20 +45,16 @@ p {
     color: #ffffff;
 }
 ol {
-    font-size: 1.1em;
+    font-size: 1em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
     line-height: 2em;
     color: #ffffff;
 }
 ul {
-    font-size: 1.1em;
+    font-size: 1em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
     line-height: 2em;
     color: #ffffff;
-}
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
 }
 
 ul.posts { 
