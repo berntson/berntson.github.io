@@ -1,22 +1,23 @@
 body {
     margin: auto;
     max-width: 600px;
-    width: 90%;
+    width: 95%;
     background-color: #1a1a1a;
-    padding-top: 10%;
 }
-nav ul, footer ul {
-    margin-top:10%
+
+
+
+nav ul {
     font-family:'Lora', 'Arial', 'Sans-Serif';
-    padding: 0px;
     list-style: none;
-    font-weight: bold;
-    float: right;
+    font-weight: bold;  
 }
-nav ul li, footer ul li {
-    display: inline;
+nav ul li {
+    float: right;
     margin-right: 20px;
 }
+
+
 a {
     text-decoration: none;
     color: skyblue;
@@ -32,12 +33,13 @@ h1 {
     
 }
 h2 {
+    text-decoration: none;
     font-size: 1.5em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
     color: #ffffff;
 }
 p {
-    font-size: 1.1em;
+    font-size: 1em;
     font-family:'Lora', 'Arial', 'Sans-Serif';
     line-height: 2em;
     color: #ffffff;
