@@ -56,7 +56,6 @@ ul {
     font-family:'Lora', 'Arial', 'Sans-Serif';
     line-height: 2em;
     color: #ffffff;
-    list-style: none;
 }
 
 details {
@@ -72,6 +71,11 @@ details summary {
     line-height: 2em;
     color: skyblue;
 }
-
-
-
+    
+details > summary {
+  list-style: none;
+}
+    
+details > summary::-webkit-details-marker {
+  display: none;
+}
