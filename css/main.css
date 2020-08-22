@@ -11,7 +11,7 @@ nav ul {
     font-family:'Lora', 'Arial', 'Sans-Serif';
     list-style: none;
     font-weight: bold;  
-    text-align: right
+    text-align: right;
 }
 nav ul li {
     margin-left: 20px;
@@ -44,6 +44,7 @@ p {
     font-family:'Lora', 'Arial', 'Sans-Serif';
     line-height: 2em;
     color: #ffffff;
+    text-align: justify;
 }
 ol {
     font-size: 1em;
@@ -63,6 +64,7 @@ details {
     font-family:'Lora', 'Arial', 'Sans-Serif';
     line-height: 2em;
     color: #ffffff;
+    text-align: justify;
 }
 
 details summary {
