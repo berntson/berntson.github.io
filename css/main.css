@@ -11,8 +11,8 @@ ul {
 body {
     margin: 0;
     margin-top: 2.5em;
-    background-color: #0d0d0d;
-    font-family: "Source Code Pro";
+    background-color: #1c1c1c;
+    font-family: "Open Sans";
 }
 
 nav ul {
@@ -27,7 +27,7 @@ nav ul li {
 }
 
 a {
-    color: #29a329;
+    color: #5177bd;
 }
 
 a:hover {
@@ -40,12 +40,12 @@ a:hover {
 
 
 h1 {
-    font-size:2em;
-    color: darkgrey;
+    font-size:2.5em;
+    color: #b5b5b5;
     font-weight: bold;
-    border-bottom: 5px solid darkgrey;
+    border-bottom: 5px solid #b5b5b5;
     margin-bottom: .7em;
-    margin-top: 2.5em;
+    margin-top: 1em;
     
     
 }
@@ -55,20 +55,21 @@ h2 {
     font-size:1.7em;
     margin-bottom: .5em;
     font-weight: bold;
-    color: darkgrey;
+    color: #b5b5b5;
     
 }
 
 p {
-    text-align: justify;
-    color: darkgrey;
+    font-size:.9em;
+    color: #b5b5b5;
 }
 
 ul {
+    font-size:.9em;
     line-height: 2em;
     list-style-type: none;
     padding-left: 0em;
-    color: darkgrey;
+    color: lightgray;
 }
 
     
