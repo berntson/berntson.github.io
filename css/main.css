@@ -12,7 +12,7 @@ body {
     margin: 0;
     margin-top: 2.5em;
     background-color: #1c1c1c;
-    font-family: "Open Sans";
+    font-family: "Roboto";
 }
 
 nav ul {
@@ -40,7 +40,8 @@ a:hover {
 
 
 h1 {
-    font-size:2.5em;
+    font-family: "Press Start 2P";
+    font-size:2.2em;
     color: #b5b5b5;
     font-weight: bold;
     border-bottom: 5px solid #b5b5b5;
@@ -52,8 +53,8 @@ h1 {
 
 h2 {
     margin-top: 2em;
-    font-size:1.7em;
-    margin-bottom: .5em;
+    font-size:1.6em;
+    margin-bottom:;
     font-weight: bold;
     color: lightgray;
     
