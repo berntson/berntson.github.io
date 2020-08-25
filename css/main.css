@@ -9,7 +9,7 @@ ul {
 
 
 body {
-    margin: 3em;
+    margin: 0;
     background-color: #1a1a1a;
 }
 
@@ -55,9 +55,6 @@ ul {
 }
 
     
-
-
-
 
 .navbar-custom {
     background-color: #1a1a1a !important;
