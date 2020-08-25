@@ -64,14 +64,12 @@ ul {
 
 .navbar-custom {
     margin: 0;
-    margin-left : -32px;
-    margin-right : -30px;
     margin-bottom: 1.5em;
     
 }
 
 .navbar-custom .navbar-brand {
-    font-size: 2em;
+    font-size: 1.8em;
    /* color: #8ca7ff; */
     color: darkgrey;
       font-weight: bold;
