@@ -11,7 +11,7 @@ ul {
 body {
     margin: 0;
     margin-top: 2.5em;
-    background-color: #1a1a1a;
+    background-color: #0d0d0d;
     font-family: "Source Code Pro";
 }
 
@@ -27,12 +27,15 @@ nav ul li {
 }
 
 a {
-        color: forestgreen;
+    color: #29a329;
 }
 
 a:hover {
     text-decoration: none;
     text-decoration: underline;
+    color: #33cc33;
+    
+    
 }
 
 
@@ -41,7 +44,8 @@ h1 {
     color: darkgrey;
     font-weight: bold;
     border-bottom: 5px solid darkgrey;
-    margin-bottom: 1em;
+    margin-bottom: .7em;
+    margin-top: 2.5em;
     
     
 }
