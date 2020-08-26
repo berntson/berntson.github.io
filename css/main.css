@@ -10,10 +10,10 @@ ul {
 
 body {
     background-color: #1c1c1c;
-
     max-width: 550px;
     margin: auto;
-    font-family: "Source Code Pro"
+    font-family: "Source Code Pro";
+    font-size:.9em;
 }
 
 nav ul {
@@ -62,13 +62,11 @@ h2 {
 }
 
 p {
-    font-size:.9em;
     line-height: 2em;
     color: lightgray;
 }
 
 ul {
-    font-size:.9em;
     line-height: 2em;
     list-style-type: none;
     padding-left: 0em;
@@ -76,25 +74,3 @@ ul {
 }
 
     
-
-.navbar-custom {
-    background-color: #1a1a1a !important;
-/*    border-bottom: 5px solid darkgrey;*/
-}
-
-
-.navbar-custom {
-    margin: 0;
-    
-}
-
-.navbar-custom .navbar-brand {
-    font-size:2.2em;
-   /* color: #8ca7ff; */
-    color: darkgrey;
-      font-weight: bold;
-}
-
-.content {
-
-}
