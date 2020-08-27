@@ -1,0 +1,54 @@
+body {
+    max-width: 700px;
+    margin: auto;
+    padding-bottom: 15em;
+    font-family: "Quicksand"; 
+    background: #9c9386;
+    padding-top: 2em;
+}
+
+
+h1 {
+    font-family: "Orbitron"; 
+
+    font-weight: bold;
+    font-size: 3em;
+}
+
+h2 {
+    font-family: "Quicksand"; 
+    font-weight: bold;
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: .3em;
+    text-decoration: underline;
+  
+}
+
+table {
+    padding-left: 1em;
+}
+
+
+table, th, td {
+    border: none;
+    border-collapse: collapse;
+    text-align: left;
+}
+th, td {
+    vertical-align: top;
+}
+table, th, td {
+    border: none;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+ul {
+  list-style: none
+}
+
+table {
+    
+}
+
