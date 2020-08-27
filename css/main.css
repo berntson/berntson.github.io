@@ -1,19 +1,10 @@
-
-
-ul {
-    line-height: 2em;
-    list-style-type: none;
-    padding-left: 0em;
-}
-
-
-
 body {
     background-color: #1c1c1c;
     max-width: 550px;
     margin: auto;
     font-family: "Source Code Pro";
     font-size:.9em;
+    padding-bottom: 15em;
 }
 
 nav ul {
@@ -34,9 +25,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: #638ad6;
-    
-    
+    color: #638ad6; 
 }
 
 
@@ -47,9 +36,7 @@ h1 {
     font-weight: bold;
     border-bottom: 4px solid #b5b5b5;
     margin-bottom: .7em;
-    margin-top: 1.5em;
-    
-    
+    margin-top: 1em;   
 }
 
 h2 {
@@ -57,20 +44,55 @@ h2 {
     font-size:1.6em;
     margin-bottom: .5em;
     font-weight: bold;
-    color: lightgray;
-    
+    color: #b5b5b5;  
 }
 
 p {
     line-height: 2em;
-    color: lightgray;
+    color: #b5b5b5;
 }
 
 ul {
     line-height: 2em;
     list-style-type: none;
     padding-left: 0em;
-    color: lightgray;
+    color: #b5b5b5;
 }
+
+.accordion {
+    background-color: #1c1c1c;
+    color: #5177bd;
+    cursor: pointer;
+    padding: .5em;
+    padding-left: 0em;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: ;
+    font-family: "Source Code Pro";
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #1c1c1c;
+}
+
+.panel {
+    background-color: #262626;
+    padding: 0 2em;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-family: "Source Code Pro";
+    font-size: .8em;
+}
+
+img {
+  width: 100%;
+    max-width: 650px;
+  height: auto;
+}
+
+
 
     
