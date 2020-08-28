@@ -1,8 +1,8 @@
 body {
+    width: 95%;
     max-width: 700px;
     margin: auto;
     padding-bottom: 15em;
-    font-family: "Quicksand", sans-serif; 
     background: #9c9386;
     padding-top: 4em;
 }
@@ -10,12 +10,14 @@ body {
 
 h1 {
     margin-top: .2em;
+    margin-bottom: .5em;
     font-family: "Orbitron"; 
     font-weight: 2000;
     font-size: 3.5em;
 }
 
 h2 {
+    font-family: "Quicksand", sans-serif; 
     font-size: 1.7em;
     margin: 0;
     padding-top: 2em;
@@ -23,7 +25,18 @@ h2 {
   
 }
 
+h3 {
+    font-family: "Quicksand", sans-serif; 
+    <!-- text-align: center;-->
+}
+
+p {  
+    font-family: "Quicksand", sans-serif; 
+    font-size: 1em;
+}
+
 table {
+    font-family: "Quicksand", sans-serif; 
     padding-left: 1em;
 }
 
@@ -54,5 +67,38 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: #c7501e; 
+    color: #c7501e; }
+    
+img {
+  width: 100%;
+    max-width: 400px;
+  height: auto;
+}
 
+.accordion {
+    background-color: #9c9386;
+    cursor: pointer;
+    padding: 0em;
+    padding-left: 0em;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1em ;
+    font-family: "Quicksand";
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+
+}
+
+.panel {
+    background-color: #9c9386;
+    padding-left: 7em;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-family: "Quicksand";
+    font-size: .8em;
+    line-height: 1.5;
+}

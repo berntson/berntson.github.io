@@ -22,11 +22,24 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Code Pro">
-	</head>
+        
+        
+        <!-- Java for accordion -->
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+          $( function() {
+            $( "#accordion" ).accordion({
+              heightStyle: "content"
+            });
+          } );
+        </script>
+    </head>
     
 	<body>
-        <div style="text-align: center; ">
-            <img src="assets/album.jpeg" alt="Fields" width="50%">
+        <div style="text-align: center;">
+            <img src="assets/album.jpeg" alt="Fields">
         
         <h1>Science and Religion</h1>
         </div>
@@ -38,33 +51,359 @@
         </div>
         
         <h2>Classes</h2>
-        Classes will be held remotely over Zoom and will meet [INSERT] on T/Th.
+        <p>
+            Classes will be held remotely over Zoom and will meet [INSERT] on T/Th.
+        </p>
         
         <h2>Materials</h2>
-        Our main text will be the be the fifth edition of <a href="https://www.google.com/books/edition/Philosophy_of_Religion/inynngEACAAJ?hl=en">Philosophy of Religion: Selected Readings</a>, edited by Michael Peterson et al. This can be found online at a variety of locations (<a href="https://www.amazon.com/Philosophy-Religion-Selected-Michael-Peterson/dp/0199303444/ref=sr_1_1?crid=19J3OZYCS892F&dchild=1&keywords=philosophy+of+religion+selected+readings+5th+edition&qid=1598557520&sprefix=phillosophy+of+religion+%2Caps%2C145&sr=8-1">Amazon</a>, <a href="https://www.barnesandnoble.com/w/philosophy-of-religion-michael-peterson/1120732822;jsessionid=3878551B5FD81A8800E8E3A64A8A1D90.prodny_store02-atgap13?ean=9780199303441">Barnes & Nobel</a>, <a href="https://global.oup.com/ushe/product/philosophy-of-religion-9780199303441?cc=us&lang=en&">OUP</a>)
+        <p>
+            Our main text will be the be the fifth edition of <a href="https://www.google.com/books/edition/Philosophy_of_Religion/inynngEACAAJ?hl=en">Philosophy of Religion: Selected Readings</a>, edited by Michael Peterson et al. This can be found online at a variety of locations (<a href="https://www.amazon.com/Philosophy-Religion-Selected-Michael-Peterson/dp/0199303444/ref=sr_1_1?crid=19J3OZYCS892F&dchild=1&keywords=philosophy+of+religion+selected+readings+5th+edition&qid=1598557520&sprefix=phillosophy+of+religion+%2Caps%2C145&sr=8-1">Amazon</a>, <a href="https://www.barnesandnoble.com/w/philosophy-of-religion-michael-peterson/1120732822;jsessionid=3878551B5FD81A8800E8E3A64A8A1D90.prodny_store02-atgap13?ean=9780199303441">Barnes & Nobel</a>, <a href="https://global.oup.com/ushe/product/philosophy-of-religion-9780199303441?cc=us&lang=en&">OUP</a>)
+        </p>
  
         <h2>Assessment</h2>
         
         <h2>Policies</h2>
         
         <h2>Accademic Integrity</h2>
-        
+        10
         
         <h2>Course Schedule</h2>
-        <table class="readings">
-            <tr>
-                <th style="padding-right: 2em"> 9/1 </th>
-                <th> Welcome</th>
-            </tr>
-            <tr>
-                <th> 9/3 </th>
-                <th> Test </th>
-            </tr>
-        </table>
-            <ul>
-                <li>09/01 Welcome</li>
-               
-            </ul>
+        <p>
+            The schedule below is provisional. Over the course of the semester, we may spend either more or less time on each topic, and I may revise the listed readings. This means that before doing the readings for a particular class, you should check back to see if there are any updates.
+        </p>
+        <p>
+            Clicking on the description for a class will reveal the readings for that class. Secondary readings are optional, and marked with an asterisk. You are expected to do the primary readings, which are not marked.
+        </p>
         
+        <h3>Setting the Stage</h3>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/1</th>
+                        <th>Welcome</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                Reading
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/3</th>
+                        <th>Is there Conflict between Science and Religion?</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            P12<br>
+                            Gold<br>
+                            Dawkins
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/8</th>
+                        <th>Varieties of Naturalism</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Ruse<br>
+                            Peterson
+            </div>  
+
+        <h3>Why is there Anything?</h3>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/10</th>
+                        <th>Ontological Argument</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Anselm,<br>
+                            Guanilo<br>
+                            *P12*
+            </div>
+            <!--<button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">Date</th>
+                        <th>Modal ontological argument</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>-->
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/15</th>
+                        <th>Cosmological Argument</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div> 
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/17</th>
+                        <th>Kalam Cosmological Argument</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div> 
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/22</th>
+                        <th>Teleological Argument</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div> 
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/24</th>
+                        <th>Design Argument</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">9/29</th>
+                        <th>Fine Tuning Argument</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+        
+        <h3>Why is there Evil?</h3>        
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em">10/1</th>
+                        <th>Evil and Evolution</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Free Will Defense</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Is there a Best World?</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Evil in the Quantum Multiverse</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+        <h3>Religion and Reason</h3> 
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Pragmatism</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Reading
+            </div>        
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Betting on God</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Pluralism</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Religious Experience</th>
+                    </tr>
+                </table>
+            </button>
+           <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Against Naturalism</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+        <h3>Freedom, God, and Spacetime</h3> 
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Free Will</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Molinism <br>
+            </div>        
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Simple Foreknowledge </th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>  
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Open Theism</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>  
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Presentism</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>  
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Eternalism</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>  
+        
+        <h3>Teletrasporters and the Afterlife</h3>
+             <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Neroscience and the Soul</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>  
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Teletrasporters</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>The Buddhist Doctrine of No-Self</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>
+            <button class="accordion">
+                 <table>
+                    <tr>
+                        <th style="width: 4em"></th>
+                        <th>Heaven</th>
+                    </tr>
+                </table>
+            </button>
+            <div class="panel">
+                            Readings <br>
+            </div>  
+        
+
+        
+    <!-- Load Java scrit for accordian --> 
+    <script type="text/javascript" src="assets/accordion.js"></script>     
+       
 	</body>
 </html>
+
+
