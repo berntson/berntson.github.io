@@ -26,6 +26,9 @@ h2 {
 }
 
 h3 {
+    margin: 0em;
+    margin-top: 1.6em;
+    margin-bottom: .8em;
     font-family: "Quicksand", sans-serif; 
     <!-- text-align: center;-->
 }
@@ -94,10 +97,16 @@ img {
 
 .panel {
     background-color: #9c9386;
-    padding-left: 7em;
+    padding-left: 5.5em;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+.reference {
+    margin: .5em;
+    padding-left: 36px;
+    text-indent: -36px;
     font-family: "Quicksand";
     font-size: .8em;
     line-height: 1.5;
