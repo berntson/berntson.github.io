@@ -20,7 +20,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin: 0;
     padding-top: 1em;
     padding-bottom: 0em; 
@@ -30,22 +30,12 @@ h2 {
 }
 
 h3 {
+    font-family: "Orbitron";
+    font-size: 1.3em;
+    font-weight: 300;
     margin: 0em;
     margin-top: 1.6em;
-    margin-bottom: .8em;
-}
-
-p {  
-}
-
-
-ol {
-}
-
-table {
-    padding-left: 1em;
-    font-size: 1em;
-    font-weight: 300;
+    margin-bottom: .2em;
 }
 
 
@@ -53,22 +43,10 @@ table, th, td {
     border: none;
     border-collapse: collapse;
     text-align: left;
-}
-th, td {
-    vertical-align: top;
-}
-table, th, td {
-    border: none;
-    border-collapse: collapse;
-    text-align: left;
-}
-
-ul {
-  list-style: none
 }
 
 a {
-    font-weight: 1200;    
+    font-weight: 2000;    
     text-decoration: none;
     color: #872800;
 }
@@ -86,14 +64,11 @@ img {
 .accordion {
     background-color: #9c9386;
     cursor: pointer;
-    padding: 0em;
-    padding-left: 0em;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 1em ;
     font-family: "Quicksand";
-    font-weight: 300;
+    font-size: 1em;
     transition: 0.4s;
 }
 
@@ -103,7 +78,7 @@ img {
 
 .panel {
     background-color: #9c9386;
-    padding-left: 5.5em;
+    padding-left: 5em;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
@@ -111,8 +86,8 @@ img {
 
 .reference {
     margin: .5em;
-    padding-left: 2em;
-    text-indent: -2em;
+    padding-left: 1.5em;
+    text-indent: -1.5em;
     font-family: "Quicksand";
     font-size: .8em;
     line-height: 1.5;
