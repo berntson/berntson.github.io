@@ -1,9 +1,9 @@
 body {
     background-color: #1c1c1c;
-    max-width: 550px;
+    max-width: 600px;
     margin: auto;
     font-family: "Source Code Pro";
-    font-size:.9em;
+    font-size:1em;
     padding-bottom: 15em;
 }
 
@@ -68,7 +68,7 @@ ul {
     border: none;
     text-align: left;
     outline: none;
-    font-size: ;
+    font-size: 1em;
     font-family: "Source Code Pro";
     transition: 0.4s;
 }
@@ -84,7 +84,7 @@ ul {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     font-family: "Source Code Pro";
-    font-size: .8em;
+    font-size: 1em;
 }
 
 img {
