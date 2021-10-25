@@ -4,8 +4,7 @@ body {
     margin: auto;
     font-family: "Source Code Pro";
     font-size:1.1em;
-    padding-left: .5em;
-    padding-bottom: 5em;
+    padding: 5% 5%;
 }
 
 nav ul {
