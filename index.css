@@ -4,7 +4,8 @@ body {
     margin: auto;
     font-family: "Source Code Pro";
     font-size:1.1em;
-    padding: .2em;
+    padding: 1em;
+    padding-bottom: 5em;
 }
 
 nav ul {
@@ -57,34 +58,6 @@ ul {
     list-style-type: none;
     padding-left: 0em;
     color: #b5b5b5;
-}
-
-.accordion {
-    background-color: #1c1c1c;
-    color: #5177bd;
-    cursor: pointer;
-    padding: .5em;
-    padding-left: 0em;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 1em;
-    font-family: "Source Code Pro";
-    transition: 0.4s;
-}
-
-.active, .accordion:hover {
-    background-color: #1c1c1c;
-}
-
-.panel {
-    background-color: #262626;
-    padding: 0 2em;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    font-family: "Source Code Pro";
-    font-size: 1em;
 }
 
 img {
