@@ -1,0 +1,47 @@
+  <!-- <button class="accordion">Applied Modal Mathematics</button>
+                <div class="panel">
+                    <p>Modalists like Putnam (1967) and Hellman (1989) say that mathematical practice requires only the possible existence of certain structures, not the actual existence of mathematical objects. This view, though, has has been thought to face a decisive objection: While it may be able to account for pure mathematics, it cannot account for the application of mathematics to the physical world. This paper shows how the objection can be met. [<a href="mailto:daniel.berntson@rutgers.edu">coming soon</a>]</p>
+                </div> -->
+
+            <p><a href="uploads/ni.pdf">Nominalism and Immutability</a></p>
+            <p><a href="uploads/ncc.pdf">Near Closeness and Conditionals</a></p>
+            <p><a href="uploads/pct.pdf">The Paradox of Counterfactual Tolerance</a></p>
+            <p><a href="https://philpapers.org/rec/BERANP">A New Prospect for Epistemic Aggregation</a> (with Yoaav Issacs)</p>
+
+            <!-- <button class="accordion">Nominalism and Immutability</button>
+                <div class="panel">
+                    <p>[Abstract] [<a href="uploads/ni.pdf">draft</a>]</p>
+                </div>-->
+        
+            <!--<button class="accordion">Near Closeness and Conditionals</button>
+                <div class="panel">
+                    <p>This paper presents a new system of conditional logic <b>B2</b>, which is strictly intermediate in strength between the existing systems <b>B1</b> and <b>B3</b>  from John Burgess (1981) and David Lewis (1973). After presenting and motivating the new system, we will show that it is characterized by a natural class of frames. These frames correspond to the idea that conditionals are about which worlds are nearly closest, rather than which worlds 
+                        are closest. Along the way, we will also give new characterization results for <b>B1</b> and <b>B3</b>, along with two other new systems <b>B1.1</b> and <b>B1.2</b>.[<a href="uploads/ncc.pdf">draft</a>]</p>
+                </div>-->
+        
+            <!-- <button class="accordion">The Distribution Lottery Paradox</button>
+                <div class="panel">
+                    <p>Hanas Leitgeb (2014) proposes a new lottery paradox for counterfactuals that does does not rely on agglomeration. His parpadox suffers from various difficulties that are descried in this paper. Perhaps most notably, his paradox relies on an axiom called rational monotonicity that we have good reason to doubt for entirely differnt reasons. His basic paradox, though, can be not only rehabilitated, but strengthened by appealing to a different plausible principle. This paper shows how that can be done. [<a href="uploads/The Distribution Lottery Paradox">draft</a>]</p>
+                </div> -->
+                
+
+            <!-- <button class="accordion">The Paradox of Counterfactual Tolerance</button>
+                <div class="panel">
+                    <p>[<a href="uploads/pct.pdf">PhilPapers</a>][<a href="uploads/pct.pdf">draft</a>]</p>
+                   <!-- <p>We ordinarily think that counterfactuals are both tolerant and bounded. But if so, we can prove a flat contraidiction using natural rules of inference. Something has to go then. But what? [<a href="uploads/pct.pdf">draft</a>]</p>-->
+                </div>-->
+        
+            <!-- <button class="accordion">Multi-Dimensional Quantified Modal Logic</button>
+            <div class="panel">
+              <p>This paper shows how to prove completeness for an important class of multi-dimensional quantified modal logics. Those resuts provides a kind technical background for my other papers on relational possiblied and applied modal mathematics. [<a href="mailto:daniel.berntson@rutgers.edu">down for repairs</a>]</p>
+            </div>  -->
+
+             <!-- <button class="accordion">Relational Possibility</button>
+            <div class="panel">
+              <p>Relational possibilities compare or otherwise relate how things could have been with how things are. We might say, for example, that Socrates could have been taller than he is or that the Athenians could have been happier than they are. Such comparisons have generally been thought to require quantification over things like properties, worlds, or spacetime points.  [<a href="mailto:daniel.berntson@rutgers.edu">down for repairs</a>]</p>
+            </div>   -->
+
+             <!-- <button class="accordion">A New Prospect for Epistemic Aggregation (with Yoaav Issacs)</button>
+                <div class="panel">
+                    <p>How should the opinion of a group be related to the opinions of the group members? In this article, we defend a package of four norms – coherence, locality, anonymity and unanimity. Existing results show that there is no tenable procedure for aggregating outright beliefs or for aggregating credences that meet these criteria. In response, we consider the prospects for aggregating credal pairs – pairs of prior probabilities and evidence. We show that there is a method of aggregating credal pairs that possesses all four virtues. <br> [<a href="https://www.cambridge.org/core/journals/episteme/article/new-prospect-for-epistemic-aggregation/C67E884D7D7A0D9685B8341D4E4BEDBC/share/c9f1518080100ace9d83c0a729b364954c0d8f2a">Episteme</a>, <a href="https://philpapers.org/rec/BERANP">PhilPapers</a>]</p>
+                </div>  -->
