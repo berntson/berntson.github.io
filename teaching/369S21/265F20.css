@@ -1,0 +1,64 @@
+body {
+    width: 95%;
+    max-width: 700px;
+    margin: auto;
+
+    padding-bottom: 10em;
+    background: #f7f3f0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+
+h1 {
+    margin: .5em;
+    font-family: "Orbitron"; 
+    font-weight: 800;
+    font-size: 3em;
+    line-height: 1em;
+}
+
+h2 {
+    font-size: 1.6em;
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 0em; 
+    font-family: "Orbitron";
+    font-weight: 500;
+  
+}
+
+h3 {
+    font-family: "Orbitron";
+    font-size: 1.3em;
+    font-weight: 300;
+    margin: 0em;
+    margin-top: 1.6em;
+    margin-bottom: .4em;
+}
+
+
+table, th, td {
+    border: none;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+a {
+    font-weight: 2000;    
+    text-decoration: none;
+    color: #872800;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #c7501e; }
+    
+img {
+  width: 84%;
+    max-width: 400px;
+  height: auto;
+    margin: 8%;
+    margin-bottom:0%
+}
