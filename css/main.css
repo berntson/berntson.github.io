@@ -1,6 +1,6 @@
 body {
     background-color: #1c1c1c;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     font-family: "Source Code Pro";
     font-size:1.1em;
@@ -48,7 +48,7 @@ h2 {
 }
 
 p {
-    line-height: 2em;
+    line-height: 1.8em;
     color: #b5b5b5;
 }
 
