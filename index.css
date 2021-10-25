@@ -54,10 +54,13 @@ p {
 }
 
 ul {
-    line-height: 2em;
-    list-style-type: square;
-    padding-left: 2em;
+    list-style-type: none;
+    padding-left: 0em;
     color: #b5b5b5;
+}
+
+li {
+    margin: 1em 0;
 }
 
 img {
