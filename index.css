@@ -29,6 +29,16 @@ a:hover {
     color: #638ad6; 
 }
 
+a.hidden {
+    color : #b5b5b5; 
+    text-decoration : none;
+  }
+
+a.hidden:hover {
+    color : #b5b5b5; 
+    text-decoration : none;
+  }
+
 h1 {
     font-family: "Press Start 2P";
     font-size:2.5em;
@@ -67,8 +77,5 @@ img {
   height: auto;
 }
 
-.blank { 
-    color : #b5b5b5; text-decoration : none;
-}
 
     
