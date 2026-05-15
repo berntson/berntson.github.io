@@ -216,13 +216,7 @@ main ul li {
 
 .papers li,
 .teaching li {
-    border-top: 1px solid color-mix(in srgb, var(--fg-mute) 40%, transparent);
-    padding: 0.85rem 0;
-}
-
-.papers li:last-child,
-.teaching li:last-child {
-    border-bottom: 1px solid color-mix(in srgb, var(--fg-mute) 40%, transparent);
+    padding: 0.25rem 0;
 }
 
 .papers details > summary {
