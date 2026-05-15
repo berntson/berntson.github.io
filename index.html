@@ -1,73 +1,189 @@
 <!doctype html>
 <html lang="en">
-	<head>
-        <!-- Sets name used in titlebar -->
-        <title>Daniel Berntson</title>
-        
-        <!-- Specifies character set -->
-        <meta charset="utf-8">
-        
-        <!-- Ensures proper display for mobile -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-        <!-- Google search console verifiction -->
-		<meta name="google-site-verification" content="GyW2vOIXiRFePxnmWoK6GkBpVG0RTVIAmBjlKFD2oP0" />
-        
-        <!-- Load stylesheet -->
-		<link rel="stylesheet" type="text/css" href="index.css">
-        
-        <!-- Loads Google fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono&display=swap" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Daniel Berntson</title>
+    <meta name="description" content="Daniel Berntson — philosopher writing about science, logic, math, and metaphysics.">
 
+    <!-- Google search console verification -->
+    <meta name="google-site-verification" content="GyW2vOIXiRFePxnmWoK6GkBpVG0RTVIAmBjlKFD2oP0" />
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112314343-1"></script>
-        <script>
+    <!-- Set bar color in Safari to match dark theme by default; updated by theme script -->
+    <meta name="theme-color" content="#0d0d0d" id="theme-color-meta">
+
+    <!-- Theme init: runs before paint to avoid flash -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'light' || stored === 'dark') {
+                    document.documentElement.dataset.theme = stored;
+                }
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112314343-1"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-112314343-1');
-        </script>
-
-        <!-- Set bar color in Safari -->
-        <meta name="theme-color" content="#0c0c0c">
-
+    </script>
 </head>
-	<body> 
-        <!-- Begin navigation bar --> 
-        <nav>
-                <ul>
-                    <li><a href="mailto:daniel@berntson.io">Email</a></li>
-                    <li><a href="uploads/cv.pdf">CV</a></li>
-                    <li><a href="https://philpeople.org/profiles/daniel-berntson">PhilPeople</a></li>
-                </ul>
+<body>
+    <header>
+        <nav class="topnav" aria-label="Primary">
+            <ul class="links">
+                <li><a href="mailto:daniel@berntson.io">Email</a></li>
+                <li><a href="uploads/cv.pdf">CV</a></li>
+                <li><a href="https://philpeople.org/profiles/daniel-berntson">PhilPeople</a></li>
+            </ul>
+            <div class="theme-toggle" role="group" aria-label="Theme">
+                <button type="button" data-theme="light" aria-label="Light theme" title="Light">
+                    <span aria-hidden="true">☀</span>
+                </button>
+                <button type="button" data-theme="dark" aria-label="Dark theme" title="Dark">
+                    <span aria-hidden="true">☾</span>
+                </button>
+                <button type="button" data-theme="auto" aria-label="System theme" title="System">
+                    <span aria-hidden="true">◐</span>
+                </button>
+            </div>
         </nav>
 
-        <!-- End navigation bar --> 
-        
-        <!-- Name -->  
-        <h1>Daniel <br> Berntson</h1>
-        
-        <!-- Content -->
+        <h1>Daniel <br>Berntson</h1>
+    </header>
+
+    <main>
+        <section class="bio" aria-label="About">
             <p>
-                I'm a philosopher writing about science, <a href="https://www.youtube.com/watch?v=MnMUdko6ljs" class="hidden">logic</a>, <a href="https://youtu.be/Ti6qhk3tX2s" class="hidden">math</a>, and metaphysics. My PhD is from <a href="https://philosophy.princeton.edu/" class="hidden">Princeton</a>, and I previously held research positions at <a href="https://philosophy.rutgers.edu/homepage" class="hidden">Rutgers University</a> and <a href="https://www.uu.se/en/department/philosophy" class="hidden">Uppsala University</a>. When not doing philosophy, I like to run, read science fiction, and spend time with my family.
+                I'm a philosopher writing about science,
+                <a href="https://www.youtube.com/watch?v=MnMUdko6ljs" class="hidden">logic</a>,
+                <a href="https://youtu.be/Ti6qhk3tX2s" class="hidden">math</a>, and metaphysics.
+                My PhD is from <a href="https://philosophy.princeton.edu/" class="hidden">Princeton</a>,
+                and I previously held research positions at
+                <a href="https://philosophy.rutgers.edu/homepage" class="hidden">Rutgers University</a> and
+                <a href="https://www.uu.se/en/department/philosophy" class="hidden">Uppsala University</a>.
+                When not doing philosophy, I like to run, read science fiction, and spend time with my family.
             </p>
+        </section>
 
-        <h2>Papers:</h2>
+        <section class="papers" aria-labelledby="papers-heading">
+            <h2 id="papers-heading">Papers</h2>
             <ul>
-                <li><a href="uploads/against-modus-ponens-for-might.pdf">Against Modus Ponens for Might</a> (forthcoming in <i>Analysis</i>)</li>
-                <li><a href="https://philarchive.org/archive/BERNAI">Nominalism and Immutability</a></li>
-                <li><a href="uploads/near-similarity-and-counterfactuals.pdf">Near Similarity and Counterfactuals</a></li>
-                <li>The Counterfactual Logic of Interval Orders and Semiorders</li>
+                <li>
+                    <details>
+                        <summary>
+                            <span class="paper-title"><a href="uploads/against-modus-ponens-for-might.pdf">Against Modus Ponens for Might</a></span>
+                            <span class="paper-meta">forthcoming in <i>Analysis</i></span>
+                        </summary>
+                        <p class="abstract">
+                            Suppose that you and I are at the mint and see a new coin. We have no way of knowing whether the coin will ever be flipped. Still, we know something: we know that if the coin were flipped, it might land heads, and that if it were flipped, it might land tails. Surprisingly, this simple case is flatly inconsistent with theories of counterfactuals from Lewis and Stalnaker. In this short paper I explain why, and consider how the problem might be solved.
+                        </p>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>
+                            <span class="paper-title"><a href="https://philarchive.org/archive/BERNAI">Nominalism and Immutability</a></span>
+                        </summary>
+                        <p class="abstract">
+                            Can we do science without numbers? Hartry Field showed how, but his strategy requires the existence of spacetime points. I argue that a radical answer to a seemingly unrelated metaphysical question—immutabilism, the view that there is contingency about what exists but none about how things are—yields a new strategy for nominalist science that doesn't need spacetime points.
+                        </p>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>
+                            <span class="paper-title"><a href="uploads/near-similarity-and-counterfactuals.pdf">Near Similarity and Counterfactuals</a></span>
+                        </summary>
+                        <p class="abstract">
+                            David Lewis analyzes counterfactuals in terms of maximal similarity. In this paper, I argue that they should instead be analyzed in terms of <i>near</i> similarity. After giving two arguments for this shift, I develop near-similarity semantics as a positive proposal by providing models and a corresponding proof theory. A striking feature of the resulting semantics is that the similarity relation it employs need not be transitive. As a result, it invalidates the inference rule Strengthen Might.
+                        </p>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>
+                            <span class="paper-title">The Counterfactual Logic of Interval Orders and Semiorders</span>
+                        </summary>
+                        <p class="abstract">
+                            Counterfactuals are often modeled using comparative relations on possible worlds. Such relations include total orders (Stalnaker), total preorders (Lewis), and preorders (Pollock, Kratzer). In this paper, I extend this research program by introducing new systems of counterfactual logic based on interval orders and semiorders. I then show that all the new systems are weakly complete and decidable, and that many are strongly complete, and therefore also compact.
+                        </p>
+                    </details>
+                </li>
             </ul>
+        </section>
 
-        <h2>Teaching:</h2>
-        <ul>
-            <li><a href="teaching/369S21/265F20.html">Buddhism, Science, and the Self</a></li>
-            <li><a href="teaching/265F20/265F20.html">Science and Religion</a></li>
-        </ul>
+        <section class="teaching" aria-labelledby="teaching-heading">
+            <h2 id="teaching-heading">Teaching</h2>
+            <ul>
+                <li><a href="teaching/369S21/265F20.html">Buddhism, Science, and the Self</a></li>
+                <li><a href="teaching/265F20/265F20.html">Science and Religion</a></li>
+            </ul>
+        </section>
+    </main>
 
-	</body>
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.theme-toggle button');
+            var meta = document.getElementById('theme-color-meta');
+
+            function effectiveTheme() {
+                var t = document.documentElement.dataset.theme;
+                if (t === 'light' || t === 'dark') return t;
+                return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+
+            function updateMeta() {
+                if (!meta) return;
+                meta.setAttribute('content', effectiveTheme() === 'light' ? '#f0eee6' : '#0d0d0d');
+            }
+
+            function updateButtons() {
+                var current;
+                try { current = localStorage.getItem('theme'); } catch (e) { current = null; }
+                if (current !== 'light' && current !== 'dark') current = 'auto';
+                buttons.forEach(function (b) {
+                    b.setAttribute('aria-pressed', b.dataset.theme === current ? 'true' : 'false');
+                });
+            }
+
+            buttons.forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var theme = b.dataset.theme;
+                    try {
+                        if (theme === 'auto') {
+                            localStorage.removeItem('theme');
+                            delete document.documentElement.dataset.theme;
+                        } else {
+                            localStorage.setItem('theme', theme);
+                            document.documentElement.dataset.theme = theme;
+                        }
+                    } catch (e) { /* ignore */ }
+                    updateButtons();
+                    updateMeta();
+                });
+            });
+
+            // React to system theme changes when in auto mode
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateMeta);
+            }
+
+            updateButtons();
+            updateMeta();
+        })();
+    </script>
+</body>
 </html>
