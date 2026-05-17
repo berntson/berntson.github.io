@@ -1,0 +1,285 @@
+/* ------------------------------------------------------------------
+ * Daniel Berntson — blog styles
+ *
+ * Extends index.css. Loaded after it on blog pages.
+ * Focus: clear reading typography for long-form prose.
+ * ------------------------------------------------------------------ */
+
+/* ---------- Top-nav restyle for blog pages ---------- */
+
+body.blog header > .topnav {
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--fg-mute);
+}
+
+body.blog .topnav ul.links {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+body.blog .topnav ul.links a {
+    color: var(--fg-mute);
+}
+
+body.blog .topnav ul.links a:hover,
+body.blog .topnav ul.links a:focus-visible {
+    color: var(--fg-strong);
+    text-decoration: none;
+}
+
+/* ---------- Post header ---------- */
+
+.post-header h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: clamp(1.5rem, 3vw + 0.75rem, 2rem);
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 0.5rem 0 0.5rem;
+}
+
+.post-meta {
+    color: var(--fg-mute);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 2rem;
+}
+
+/* ---------- Post body — prose typography ---------- */
+
+.post-body {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.post-body > * + * {
+    margin-top: 1.1em;
+}
+
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+    font-family: "Roboto Mono", monospace;
+    color: var(--fg-strong);
+    font-weight: 500;
+    line-height: 1.3;
+    border-bottom: none;
+    padding-bottom: 0;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.post-body h2 {
+    font-size: 1.2rem;
+    margin-top: 2.5em;
+    margin-bottom: 0.4em;
+}
+
+.post-body h3 {
+    font-size: 1.05rem;
+    margin-top: 2em;
+    margin-bottom: 0.3em;
+    color: var(--fg-strong);
+}
+
+.post-body h4 {
+    font-size: 0.95rem;
+    margin-top: 1.6em;
+    margin-bottom: 0.2em;
+    color: var(--fg-mute);
+}
+
+.post-body p {
+    margin: 0;
+}
+
+.post-body ul,
+.post-body ol {
+    padding-left: 1.4rem;
+    margin: 0;
+}
+
+.post-body ul { list-style: disc; }
+.post-body ol { list-style: decimal; }
+
+.post-body li {
+    margin: 0.35em 0;
+}
+
+.post-body li > ul,
+.post-body li > ol {
+    margin-top: 0.3em;
+}
+
+.post-body blockquote {
+    margin: 0;
+    padding: 0.15rem 0 0.15rem 1rem;
+    border-left: 2px solid var(--fg-mute);
+    color: var(--fg-mute);
+}
+
+.post-body hr {
+    border: none;
+    border-top: 1px solid var(--fg-mute);
+    margin: 2.5em 0;
+}
+
+.post-body code {
+    font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.92em;
+    padding: 0.05em 0.3em;
+    background: color-mix(in srgb, var(--fg-mute) 18%, transparent);
+    border-radius: 2px;
+}
+
+.post-body pre {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    background: color-mix(in srgb, var(--fg-mute) 12%, transparent);
+    border-left: 2px solid var(--fg-mute);
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.post-body pre code {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    font-size: inherit;
+}
+
+.post-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    image-rendering: auto;
+    margin: 0 auto;
+}
+
+.post-body figure {
+    margin: 0;
+}
+
+.post-body figcaption {
+    color: var(--fg-mute);
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.post-body table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.post-body th,
+.post-body td {
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid var(--fg-mute);
+    text-align: left;
+}
+
+.post-body th {
+    color: var(--fg-strong);
+    font-weight: 700;
+}
+
+/* Footnotes (from markdown extension) */
+.post-body .footnote {
+    font-size: 0.9rem;
+    color: var(--fg-mute);
+    margin-top: 3em;
+    border-top: 1px solid var(--fg-mute);
+    padding-top: 1em;
+}
+
+.post-body .footnote ol {
+    padding-left: 1.2rem;
+}
+
+/* ---------- Post footer ---------- */
+
+.post-footer {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--fg-mute);
+    font-size: 0.9rem;
+}
+
+.post-footer p { margin: 0; }
+
+/* ---------- Blog index ---------- */
+
+.blog-index h1 {
+    font-family: "Press Start 2P", "Roboto Mono", monospace;
+    font-size: clamp(1.5rem, 4vw + 0.5rem, 2.2rem);
+    line-height: 1.15;
+    color: var(--fg-strong);
+    font-weight: normal;
+    border-bottom: 4px solid var(--rule);
+    padding-bottom: 0.5rem;
+    margin: 0.5rem 0 2rem;
+    letter-spacing: 0.01em;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list > li {
+    padding: 1rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--fg-mute) 50%, transparent);
+}
+
+.post-list > li:last-child {
+    border-bottom: none;
+}
+
+.post-list .post-link {
+    display: inline;
+    font-weight: 500;
+    color: var(--fg-strong);
+    font-size: 1.05rem;
+}
+
+.post-list .post-link:hover,
+.post-list .post-link:focus-visible {
+    color: var(--link-hov);
+    text-decoration: underline;
+}
+
+.post-list .post-date {
+    display: inline;
+    color: var(--fg-mute);
+    font-size: 0.85rem;
+    margin-left: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
+.post-list .post-blurb {
+    margin: 0.4rem 0 0;
+    color: var(--fg);
+    font-size: 0.95rem;
+}
+
+/* ---------- KaTeX scoping (when math: true) ---------- */
+
+.post-body .katex {
+    font-size: 1em;
+}
+
+.post-body .katex-display {
+    margin: 1.2em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}

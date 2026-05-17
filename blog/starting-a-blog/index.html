@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Starting a blog — Daniel Berntson</title>
+    <meta name="description" content="A short note on why I am starting this, and what to expect.">
+
+    <meta name="theme-color" content="#0d0d0d" id="theme-color-meta">
+
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'light' || stored === 'dark') {
+                    document.documentElement.dataset.theme = stored;
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../../blog-base.css">
+    <link rel="stylesheet" type="text/css" href="../../blog.css">
+
+    <link rel="alternate" type="application/atom+xml" title="Daniel Berntson — Blog" href="../../blog/feed.xml">
+
+    
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112314343-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-112314343-1');
+    </script>
+</head>
+<body class="blog">
+    <header>
+        <nav class="topnav" aria-label="Primary">
+            <ul class="links">
+                <li><a href="../../">← Daniel Berntson</a></li>
+                <li><a href="../../blog/">Blog</a></li>
+            </ul>
+            <div class="theme-toggle" role="group" aria-label="Theme">
+                <button type="button" data-theme="light" aria-label="Light theme" title="Light"><span aria-hidden="true">☀</span></button>
+                <button type="button" data-theme="dark" aria-label="Dark theme" title="Dark"><span aria-hidden="true">☾</span></button>
+                <button type="button" data-theme="auto" aria-label="System theme" title="System"><span aria-hidden="true">◐</span></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+<article class="post">
+    <header class="post-header">
+        <h1>Starting a blog</h1>
+        <p class="post-meta">
+            <time datetime="2026-05-16">May 16, 2026</time>
+        </p>
+    </header>
+
+    <div class="post-body">
+        <p>This is a small corner of the internet where I plan to send things when
+they feel done.</p>
+<p>I keep a lot of notes in Obsidian — half-formed ideas, drafts, reactions
+to papers I am reading. Most of them stay private, and that is fine.
+But some of them want to be finished. They want a destination, even a
+quiet one. This blog is that destination.</p>
+<p>The bar is not &ldquo;publishable&rdquo; in the academic sense. The bar is &ldquo;I am
+willing to put my name on it.&rdquo; If a post helps me think a little more
+clearly, and if a stranger or a friend stumbles across it and finds it
+worth their time, that is enough.</p>
+<p>Topics will likely cluster around things I already think about: logic,
+counterfactuals, the philosophy of science, occasional public-philosophy
+questions. There will probably also be detours into tools, workflows,
+and whatever I am reading.</p>
+<p>If you want to follow along, there is an <a href="../feed.xml">Atom feed</a>.</p>
+    </div>
+
+    <footer class="post-footer">
+        <p><a href="../../blog/">← All posts</a></p>
+    </footer>
+</article>
+
+    </main>
+
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.theme-toggle button');
+            var meta = document.getElementById('theme-color-meta');
+
+            function effectiveTheme() {
+                var t = document.documentElement.dataset.theme;
+                if (t === 'light' || t === 'dark') return t;
+                return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            function updateMeta() {
+                if (!meta) return;
+                meta.setAttribute('content', effectiveTheme() === 'light' ? '#f0eee6' : '#0d0d0d');
+            }
+            function updateButtons() {
+                var current;
+                try { current = localStorage.getItem('theme'); } catch (e) { current = null; }
+                if (current !== 'light' && current !== 'dark') current = 'auto';
+                buttons.forEach(function (b) {
+                    b.setAttribute('aria-pressed', b.dataset.theme === current ? 'true' : 'false');
+                });
+            }
+            buttons.forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var theme = b.dataset.theme;
+                    try {
+                        if (theme === 'auto') {
+                            localStorage.removeItem('theme');
+                            delete document.documentElement.dataset.theme;
+                        } else {
+                            localStorage.setItem('theme', theme);
+                            document.documentElement.dataset.theme = theme;
+                        }
+                    } catch (e) {}
+                    updateButtons();
+                    updateMeta();
+                });
+            });
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateMeta);
+            }
+            updateButtons();
+            updateMeta();
+        })();
+    </script>
+</body>
+</html>
