@@ -242,13 +242,6 @@ em {
   font-weight: 600;
 }
 
-.brand-line-2 {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-
 .site-nav nav {
   display: flex;
   align-items: center;
@@ -297,9 +290,6 @@ em {
 @media (max-width: 720px) {
   .site-nav {
     gap: 0.75rem;
-  }
-  .brand-line-2 {
-    display: none;
   }
   .site-nav nav ul {
     gap: 0.95rem;
