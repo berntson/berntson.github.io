@@ -2,6 +2,26 @@
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Theme toggle — light ↔ dark, persisted in localStorage. The initial
+// theme is applied by an inline script in <head> to avoid a flash on load.
+const themeToggle = document.querySelector(".theme-toggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const root = document.documentElement;
+    const explicit = root.getAttribute("data-theme");
+    const current =
+      explicit ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+    const next = current === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch (e) {}
+  });
+}
+
 // Scroll reveal — fade sections in as they enter the viewport
 const reveals = document.querySelectorAll(".reveal");
 
