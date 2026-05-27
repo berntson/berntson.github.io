@@ -1,0 +1,79 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Interior, looking east toward arched window">
+  <defs>
+    <linearGradient id="g2wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4E9CD" />
+      <stop offset="100%" stop-color="#E2D2AC" />
+    </linearGradient>
+    <radialGradient id="g2light" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FFEFB8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#FFEFB8" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="g2win" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8E18E" />
+      <stop offset="100%" stop-color="#E8B964" />
+    </linearGradient>
+    <linearGradient id="g2floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A88A65" />
+      <stop offset="100%" stop-color="#7A6147" />
+    </linearGradient>
+  </defs>
+
+  <!-- back wall -->
+  <rect width="400" height="300" fill="url(#g2wall)" />
+
+  <!-- ceiling shadow -->
+  <path d="M0 0 L 400 0 L 400 60 L 0 60 Z" fill="#000" opacity="0.05" />
+
+  <!-- floor with perspective -->
+  <polygon points="0,230 400,230 400,300 0,300" fill="url(#g2floor)" />
+  <!-- floor planks (perspective lines) -->
+  <g stroke="#5C4731" stroke-width="0.8" opacity="0.5">
+    <line x1="0" y1="245" x2="400" y2="245" />
+    <line x1="0" y1="262" x2="400" y2="262" />
+    <line x1="0" y1="280" x2="400" y2="280" />
+  </g>
+
+  <!-- center aisle perspective -->
+  <polygon points="180,230 220,230 270,300 130,300" fill="#8A6E50" opacity="0.7" />
+
+  <!-- arched window -->
+  <g>
+    <path d="M150 175 L 150 105 Q 150 70 200 70 Q 250 70 250 105 L 250 175 Z"
+          fill="url(#g2win)" stroke="#A6824A" stroke-width="1.5" />
+    <!-- mullions -->
+    <line x1="150" y1="120" x2="250" y2="120" stroke="#A6824A" stroke-width="1.2" />
+    <line x1="150" y1="148" x2="250" y2="148" stroke="#A6824A" stroke-width="1.2" />
+    <line x1="200" y1="70" x2="200" y2="175" stroke="#A6824A" stroke-width="1.2" />
+  </g>
+
+  <!-- window light wash -->
+  <ellipse cx="200" cy="170" rx="170" ry="110" fill="url(#g2light)" />
+
+  <!-- pews on left -->
+  <g fill="#6B4F33" opacity="0.85">
+    <rect x="40" y="218" width="90" height="10" rx="2" />
+    <rect x="40" y="218" width="6" height="22" />
+    <rect x="124" y="218" width="6" height="22" />
+
+    <rect x="20" y="248" width="110" height="11" rx="2" />
+    <rect x="20" y="248" width="6" height="24" />
+    <rect x="124" y="248" width="6" height="24" />
+  </g>
+
+  <!-- pews on right -->
+  <g fill="#6B4F33" opacity="0.85">
+    <rect x="270" y="218" width="90" height="10" rx="2" />
+    <rect x="270" y="218" width="6" height="22" />
+    <rect x="354" y="218" width="6" height="22" />
+
+    <rect x="270" y="248" width="110" height="11" rx="2" />
+    <rect x="270" y="248" width="6" height="24" />
+    <rect x="374" y="248" width="6" height="24" />
+  </g>
+
+  <!-- altar suggestion (cross silhouette) -->
+  <g stroke="#3A2D20" stroke-width="2.4" stroke-linecap="round" opacity="0.7">
+    <line x1="200" y1="190" x2="200" y2="215" />
+    <line x1="190" y1="198" x2="210" y2="198" />
+  </g>
+</svg>

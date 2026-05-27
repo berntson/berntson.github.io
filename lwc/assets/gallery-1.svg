@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Summer afternoon, church exterior">
+  <defs>
+    <linearGradient id="g1sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#CCDCE4" />
+      <stop offset="55%" stop-color="#EBE2CB" />
+      <stop offset="100%" stop-color="#F4ECDB" />
+    </linearGradient>
+    <linearGradient id="g1field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A8B791" />
+      <stop offset="100%" stop-color="#8FA379" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g1sky)" />
+  <!-- sun -->
+  <circle cx="320" cy="90" r="20" fill="#F2D58A" opacity="0.75" />
+  <!-- distant trees -->
+  <g fill="#8FA379" opacity="0.55">
+    <circle cx="50" cy="195" r="14" />
+    <circle cx="70" cy="190" r="18" />
+    <circle cx="90" cy="195" r="12" />
+    <circle cx="350" cy="195" r="16" />
+    <circle cx="370" cy="192" r="13" />
+  </g>
+  <!-- field -->
+  <path d="M0 210 Q 200 198 400 210 L 400 300 L 0 300 Z" fill="url(#g1field)" />
+  <!-- path -->
+  <path d="M200 240 Q 220 260 320 295" stroke="#7E9166" stroke-width="3" fill="none" opacity="0.6" />
+  <!-- church (centered, smaller) -->
+  <g transform="translate(120,40)">
+    <rect x="60" y="160" width="80" height="65" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1.2" />
+    <g stroke="#E2D7BD" stroke-width="0.6">
+      <line x1="60" y1="172" x2="140" y2="172" />
+      <line x1="60" y1="184" x2="140" y2="184" />
+      <line x1="60" y1="196" x2="140" y2="196" />
+      <line x1="60" y1="208" x2="140" y2="208" />
+    </g>
+    <polygon points="56,160 144,160 100,122" fill="#85735B" />
+    <rect x="92" y="122" width="16" height="32" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1" />
+    <rect x="95" y="128" width="10" height="11" fill="#5C4A3A" rx="5" />
+    <polygon points="89,122 111,122 100,90" fill="#85735B" />
+    <line x1="100" y1="76" x2="100" y2="90" stroke="#2A2520" stroke-width="1.8" stroke-linecap="round" />
+    <line x1="94" y1="81" x2="106" y2="81" stroke="#2A2520" stroke-width="1.8" stroke-linecap="round" />
+    <path d="M68 196 L 68 180 Q 68 173 76 173 Q 84 173 84 180 L 84 196 Z" fill="#7DA398" stroke="#5A8074" stroke-width="0.7" />
+    <path d="M116 196 L 116 180 Q 116 173 124 173 Q 132 173 132 180 L 132 196 Z" fill="#7DA398" stroke="#5A8074" stroke-width="0.7" />
+    <path d="M92 225 L 92 200 Q 92 191 100 191 Q 108 191 108 200 L 108 225 Z" fill="#5C4A3A" />
+  </g>
+  <!-- foreground grass -->
+  <g stroke="#6B8E5A" stroke-width="1.2" stroke-linecap="round" opacity="0.7">
+    <line x1="30" y1="265" x2="30" y2="252" />
+    <line x1="33" y1="265" x2="37" y2="255" />
+    <line x1="27" y1="265" x2="23" y2="255" />
+    <line x1="85" y1="275" x2="85" y2="262" />
+    <line x1="88" y1="275" x2="92" y2="266" />
+    <line x1="340" y1="270" x2="340" y2="258" />
+    <line x1="344" y1="270" x2="348" y2="260" />
+    <line x1="370" y1="278" x2="370" y2="266" />
+  </g>
+</svg>

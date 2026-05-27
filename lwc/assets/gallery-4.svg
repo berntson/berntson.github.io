@@ -1,0 +1,82 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="The church on a snowy day">
+  <defs>
+    <linearGradient id="g4sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C9D6DE" />
+      <stop offset="100%" stop-color="#E8EDEF" />
+    </linearGradient>
+    <linearGradient id="g4ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4F5F6" />
+      <stop offset="100%" stop-color="#DDE3E5" />
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#g4sky)" />
+
+  <!-- distant tree silhouettes -->
+  <g fill="#8FA0A2" opacity="0.45">
+    <polygon points="30,210 40,190 50,210" />
+    <polygon points="48,212 60,184 72,212" />
+    <polygon points="68,213 78,196 88,213" />
+    <polygon points="320,210 332,188 344,210" />
+    <polygon points="342,212 352,194 362,212" />
+    <polygon points="358,213 366,200 374,213" />
+  </g>
+
+  <!-- snow ground -->
+  <path d="M0 215 Q 200 205 400 215 L 400 300 L 0 300 Z" fill="url(#g4ground)" />
+
+  <!-- church (snow on roof) -->
+  <g transform="translate(120,40)">
+    <rect x="60" y="160" width="80" height="65" fill="#FAFAF6" stroke="#B8AC91" stroke-width="1.2" />
+    <g stroke="#E2D7BD" stroke-width="0.6">
+      <line x1="60" y1="172" x2="140" y2="172" />
+      <line x1="60" y1="184" x2="140" y2="184" />
+      <line x1="60" y1="196" x2="140" y2="196" />
+      <line x1="60" y1="208" x2="140" y2="208" />
+    </g>
+    <!-- roof base -->
+    <polygon points="56,160 144,160 100,122" fill="#6B5B47" />
+    <!-- snow on roof -->
+    <polygon points="56,160 144,160 100,124" fill="#FFFFFF" opacity="0.6" />
+    <polygon points="59,159 141,159 100,138" fill="#FFFFFF" opacity="0.85" />
+
+    <!-- steeple base -->
+    <rect x="92" y="122" width="16" height="32" fill="#FAFAF6" stroke="#B8AC91" stroke-width="1" />
+    <rect x="95" y="128" width="10" height="11" fill="#5C4A3A" rx="5" />
+    <!-- steeple roof -->
+    <polygon points="89,122 111,122 100,90" fill="#6B5B47" />
+    <polygon points="91,121 109,121 100,98" fill="#FFFFFF" opacity="0.8" />
+
+    <!-- cross -->
+    <line x1="100" y1="76" x2="100" y2="90" stroke="#2A2520" stroke-width="1.8" stroke-linecap="round" />
+    <line x1="94" y1="81" x2="106" y2="81" stroke="#2A2520" stroke-width="1.8" stroke-linecap="round" />
+
+    <!-- windows: warm glow -->
+    <path d="M68 196 L 68 180 Q 68 173 76 173 Q 84 173 84 180 L 84 196 Z" fill="#F4C97A" stroke="#A68352" stroke-width="0.7" />
+    <path d="M116 196 L 116 180 Q 116 173 124 173 Q 132 173 132 180 L 132 196 Z" fill="#F4C97A" stroke="#A68352" stroke-width="0.7" />
+
+    <!-- door -->
+    <path d="M92 225 L 92 200 Q 92 191 100 191 Q 108 191 108 200 L 108 225 Z" fill="#5C4A3A" />
+
+    <!-- snow drift at base -->
+    <path d="M40 222 Q 100 215 160 222 L 160 235 L 40 235 Z" fill="#FFFFFF" opacity="0.9" />
+  </g>
+
+  <!-- falling snowflakes -->
+  <g fill="#FFFFFF">
+    <circle cx="40" cy="50" r="1.5" />
+    <circle cx="95" cy="35" r="1.2" />
+    <circle cx="155" cy="80" r="1.5" />
+    <circle cx="210" cy="40" r="1.3" />
+    <circle cx="260" cy="65" r="1.6" />
+    <circle cx="310" cy="42" r="1.2" />
+    <circle cx="350" cy="78" r="1.4" />
+    <circle cx="70" cy="110" r="1.3" />
+    <circle cx="200" cy="120" r="1.5" />
+    <circle cx="320" cy="130" r="1.2" />
+    <circle cx="20" cy="160" r="1.4" />
+    <circle cx="370" cy="170" r="1.3" />
+    <circle cx="50" cy="200" r="1.5" />
+    <circle cx="350" cy="200" r="1.4" />
+  </g>
+</svg>

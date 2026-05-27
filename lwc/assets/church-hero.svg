@@ -1,0 +1,119 @@
+<svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Little white church illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EFE6CE" />
+      <stop offset="100%" stop-color="#FBF7EE" />
+    </linearGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A8B791" />
+      <stop offset="100%" stop-color="#8FA379" />
+    </linearGradient>
+    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#85735B" />
+      <stop offset="100%" stop-color="#6B5B47" />
+    </linearGradient>
+    <clipPath id="medallion">
+      <circle cx="240" cy="180" r="168" />
+    </clipPath>
+  </defs>
+
+  <!-- background medallion -->
+  <circle cx="240" cy="180" r="168" fill="url(#sky)" stroke="#E5DAC2" stroke-width="2" />
+
+  <g clip-path="url(#medallion)">
+    <!-- sun -->
+    <circle cx="368" cy="98" r="20" fill="#F2D58A" opacity="0.75" />
+    <circle cx="368" cy="98" r="32" fill="#F2D58A" opacity="0.18" />
+
+    <!-- distant hills -->
+    <path d="M60 240 Q 150 218 240 232 T 420 234 L 420 290 L 60 290 Z"
+          fill="#B9C6A6" opacity="0.55" />
+
+    <!-- field -->
+    <path d="M60 275 Q 240 263 420 275 L 420 360 L 60 360 Z" fill="url(#field)" />
+
+    <!-- field path -->
+    <path d="M240 305 Q 260 320 340 348" stroke="#7E9166" stroke-width="2" fill="none" opacity="0.55" />
+
+    <!-- birds -->
+    <g stroke="#5A5246" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.55">
+      <path d="M 120 105 q 6 -5 12 0 q 6 -5 12 0" />
+      <path d="M 152 88 q 5 -4 10 0 q 5 -4 10 0" />
+    </g>
+
+    <!-- ===== church ===== -->
+    <!-- body -->
+    <rect x="185" y="210" width="110" height="90" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1.5" />
+
+    <!-- horizontal clapboard lines -->
+    <g stroke="#E2D7BD" stroke-width="0.7">
+      <line x1="185" y1="222" x2="295" y2="222" />
+      <line x1="185" y1="234" x2="295" y2="234" />
+      <line x1="185" y1="246" x2="295" y2="246" />
+      <line x1="185" y1="258" x2="295" y2="258" />
+      <line x1="185" y1="270" x2="295" y2="270" />
+      <line x1="185" y1="282" x2="295" y2="282" />
+    </g>
+
+    <!-- main roof (gable) -->
+    <polygon points="180,210 300,210 240,158" fill="url(#roof)" />
+
+    <!-- roof shadow stripe -->
+    <polygon points="180,210 300,210 240,158" fill="#000" opacity="0.06" />
+
+    <!-- steeple base -->
+    <rect x="230" y="158" width="20" height="42" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1.3" />
+    <!-- steeple opening (bell window) -->
+    <rect x="234" y="166" width="12" height="14" fill="#5C4A3A" rx="6" />
+
+    <!-- steeple roof -->
+    <polygon points="226,158 254,158 240,118" fill="url(#roof)" />
+
+    <!-- cross -->
+    <line x1="240" y1="100" x2="240" y2="118" stroke="#2A2520" stroke-width="2.2" stroke-linecap="round" />
+    <line x1="233" y1="106" x2="247" y2="106" stroke="#2A2520" stroke-width="2.2" stroke-linecap="round" />
+
+    <!-- left window (arched) -->
+    <path d="M194 254 L 194 234 Q 194 224 204 224 Q 214 224 214 234 L 214 254 Z"
+          fill="#7DA398" stroke="#5A8074" stroke-width="1" />
+    <line x1="194" y1="240" x2="214" y2="240" stroke="#5A8074" stroke-width="0.7" />
+    <line x1="204" y1="224" x2="204" y2="254" stroke="#5A8074" stroke-width="0.7" />
+
+    <!-- right window -->
+    <path d="M266 254 L 266 234 Q 266 224 276 224 Q 286 224 286 234 L 286 254 Z"
+          fill="#7DA398" stroke="#5A8074" stroke-width="1" />
+    <line x1="266" y1="240" x2="286" y2="240" stroke="#5A8074" stroke-width="0.7" />
+    <line x1="276" y1="224" x2="276" y2="254" stroke="#5A8074" stroke-width="0.7" />
+
+    <!-- door -->
+    <path d="M228 300 L 228 268 Q 228 256 240 256 Q 252 256 252 268 L 252 300 Z"
+          fill="#5C4A3A" />
+    <line x1="240" y1="263" x2="240" y2="298" stroke="#3A2D20" stroke-width="0.9" />
+    <circle cx="247" cy="282" r="0.9" fill="#C89B5B" />
+
+    <!-- steps -->
+    <rect x="222" y="300" width="36" height="4" fill="#9C8B70" />
+    <rect x="217" y="304" width="46" height="4" fill="#8A7A60" />
+
+    <!-- grass tufts -->
+    <g stroke="#6B8E5A" stroke-width="1.1" stroke-linecap="round" opacity="0.7">
+      <line x1="100" y1="318" x2="100" y2="308" />
+      <line x1="103" y1="318" x2="106" y2="310" />
+      <line x1="97" y1="318" x2="94" y2="310" />
+
+      <line x1="142" y1="324" x2="142" y2="316" />
+      <line x1="145" y1="324" x2="148" y2="318" />
+
+      <line x1="340" y1="322" x2="340" y2="313" />
+      <line x1="343" y1="322" x2="346" y2="315" />
+      <line x1="337" y1="322" x2="334" y2="315" />
+
+      <line x1="382" y1="328" x2="382" y2="319" />
+      <line x1="385" y1="328" x2="388" y2="322" />
+    </g>
+
+    <!-- small fence post by path -->
+    <line x1="310" y1="320" x2="310" y2="332" stroke="#7A6953" stroke-width="1.4" stroke-linecap="round" opacity="0.65" />
+    <line x1="305" y1="325" x2="315" y2="325" stroke="#7A6953" stroke-width="1" opacity="0.5" />
+  </g>
+</svg>
