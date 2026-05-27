@@ -1,9 +1,12 @@
 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
   <rect width="32" height="32" rx="6" fill="#FBF7EE" />
-  <g stroke="#4A6B3F" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" fill="none">
-    <path d="M16 4 L16 9" />
-    <path d="M14 6 L18 6" />
-    <path d="M6 14 L16 8 L26 14 L26 27 L6 27 Z" />
+  <g stroke="#4A6B3F" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <!-- cross -->
+    <line x1="16" y1="3" x2="16" y2="6" />
+    <line x1="14" y1="4.5" x2="18" y2="4.5" />
+    <!-- church silhouette: body + gable + square tower -->
+    <path d="M 5 27 L 5 17 L 13 11 L 13 6 L 19 6 L 19 11 L 27 17 L 27 27 Z" />
   </g>
-  <rect x="14" y="19" width="4" height="8" fill="#4A6B3F" />
+  <!-- door -->
+  <rect x="14.5" y="21" width="3" height="6" fill="#4A6B3F" />
 </svg>

@@ -25,25 +25,68 @@
   <path d="M0 210 Q 200 198 400 210 L 400 300 L 0 300 Z" fill="url(#g1field)" />
   <!-- path -->
   <path d="M200 240 Q 220 260 320 295" stroke="#7E9166" stroke-width="3" fill="none" opacity="0.6" />
-  <!-- church (centered, smaller) -->
+
+  <!-- church -->
   <g transform="translate(120,40)">
-    <rect x="60" y="160" width="80" height="65" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1.2" />
-    <g stroke="#E2D7BD" stroke-width="0.6">
-      <line x1="60" y1="172" x2="140" y2="172" />
-      <line x1="60" y1="184" x2="140" y2="184" />
-      <line x1="60" y1="196" x2="140" y2="196" />
-      <line x1="60" y1="208" x2="140" y2="208" />
+    <!-- gable roof (behind tower) -->
+    <polygon points="54,160 100,128 146,160" fill="#85735B" />
+    <!-- body -->
+    <rect x="60" y="160" width="80" height="65" fill="#FAFAF6" stroke="#B8AC91" stroke-width="1.2" />
+    <!-- clapboard -->
+    <g stroke="#E2D7BD" stroke-width="0.5">
+      <line x1="60" y1="174" x2="140" y2="174" />
+      <line x1="60" y1="186" x2="140" y2="186" />
+      <line x1="60" y1="198" x2="140" y2="198" />
+      <line x1="60" y1="210" x2="140" y2="210" />
     </g>
-    <polygon points="56,160 144,160 100,122" fill="#85735B" />
-    <rect x="92" y="122" width="16" height="32" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1" />
-    <rect x="95" y="128" width="10" height="11" fill="#5C4A3A" rx="5" />
-    <polygon points="89,122 111,122 100,90" fill="#85735B" />
-    <line x1="100" y1="76" x2="100" y2="90" stroke="#2A2520" stroke-width="1.8" stroke-linecap="round" />
-    <line x1="94" y1="81" x2="106" y2="81" stroke="#2A2520" stroke-width="1.8" stroke-linecap="round" />
-    <path d="M68 196 L 68 180 Q 68 173 76 173 Q 84 173 84 180 L 84 196 Z" fill="#7DA398" stroke="#5A8074" stroke-width="0.7" />
-    <path d="M116 196 L 116 180 Q 116 173 124 173 Q 132 173 132 180 L 132 196 Z" fill="#7DA398" stroke="#5A8074" stroke-width="0.7" />
-    <path d="M92 225 L 92 200 Q 92 191 100 191 Q 108 191 108 200 L 108 225 Z" fill="#5C4A3A" />
+    <!-- brick foundation -->
+    <rect x="58" y="225" width="84" height="7" fill="#A07060" />
+
+    <!-- bell tower -->
+    <rect x="92" y="92" width="16" height="68" fill="#FAFAF6" stroke="#B8AC91" stroke-width="1" />
+    <!-- tower clapboard -->
+    <g stroke="#E2D7BD" stroke-width="0.4">
+      <line x1="92" y1="120" x2="108" y2="120" />
+      <line x1="92" y1="135" x2="108" y2="135" />
+      <line x1="92" y1="150" x2="108" y2="150" />
+    </g>
+    <!-- louvered opening -->
+    <rect x="94" y="98" width="12" height="14" fill="#2A2520" />
+    <g stroke="#85735B" stroke-width="0.5">
+      <line x1="95" y1="102" x2="105" y2="102" />
+      <line x1="95" y1="106" x2="105" y2="106" />
+      <line x1="95" y1="110" x2="105" y2="110" />
+    </g>
+    <!-- cap -->
+    <rect x="89" y="90" width="22" height="3" fill="#6B5B47" />
+    <!-- cross -->
+    <line x1="100" y1="80" x2="100" y2="90" stroke="#2A2520" stroke-width="1.4" stroke-linecap="round" />
+    <line x1="96" y1="84" x2="104" y2="84" stroke="#2A2520" stroke-width="1.4" stroke-linecap="round" />
+    <!-- tower window -->
+    <rect x="95" y="118" width="10" height="10" fill="#7DA398" stroke="#5A8074" stroke-width="0.5" />
+
+    <!-- flanking windows -->
+    <rect x="68" y="178" width="12" height="32" fill="#7DA398" stroke="#5A8074" stroke-width="0.7" />
+    <line x1="74" y1="178" x2="74" y2="210" stroke="#5A8074" stroke-width="0.4" />
+    <line x1="68" y1="194" x2="80" y2="194" stroke="#5A8074" stroke-width="0.4" />
+    <rect x="120" y="178" width="12" height="32" fill="#7DA398" stroke="#5A8074" stroke-width="0.7" />
+    <line x1="126" y1="178" x2="126" y2="210" stroke="#5A8074" stroke-width="0.4" />
+    <line x1="120" y1="194" x2="132" y2="194" stroke="#5A8074" stroke-width="0.4" />
+
+    <!-- double doors -->
+    <rect x="93" y="195" width="7" height="30" fill="#5C4A3A" />
+    <rect x="100" y="195" width="7" height="30" fill="#5C4A3A" />
+    <line x1="100" y1="195" x2="100" y2="225" stroke="#3A2D20" stroke-width="0.5" />
+
+    <!-- steps -->
+    <rect x="88" y="232" width="24" height="2" fill="#B5AB94" />
+    <rect x="85" y="234" width="30" height="2" fill="#A39A85" />
+
+    <!-- shrubs -->
+    <ellipse cx="56" cy="220" rx="4" ry="9" fill="#5A7A52" />
+    <ellipse cx="144" cy="220" rx="4" ry="9" fill="#5A7A52" />
   </g>
+
   <!-- foreground grass -->
   <g stroke="#6B8E5A" stroke-width="1.2" stroke-linecap="round" opacity="0.7">
     <line x1="30" y1="265" x2="30" y2="252" />

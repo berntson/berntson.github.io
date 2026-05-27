@@ -32,88 +32,127 @@
     <!-- field -->
     <path d="M60 275 Q 240 263 420 275 L 420 360 L 60 360 Z" fill="url(#field)" />
 
-    <!-- field path -->
-    <path d="M240 305 Q 260 320 340 348" stroke="#7E9166" stroke-width="2" fill="none" opacity="0.55" />
-
     <!-- birds -->
     <g stroke="#5A5246" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.55">
       <path d="M 120 105 q 6 -5 12 0 q 6 -5 12 0" />
       <path d="M 152 88 q 5 -4 10 0 q 5 -4 10 0" />
     </g>
 
-    <!-- ===== church ===== -->
-    <!-- body -->
-    <rect x="185" y="210" width="110" height="90" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1.5" />
+    <!-- ===== church (translated up to sit better in the medallion) ===== -->
+    <g transform="translate(0, -30)">
 
-    <!-- horizontal clapboard lines -->
+    <!-- gable roof (behind tower) -->
+    <polygon points="155,230 240,193 325,230" fill="url(#roof)" />
+    <polygon points="155,230 240,193 325,230" fill="#000" opacity="0.05" />
+
+    <!-- body (white clapboard) -->
+    <rect x="160" y="230" width="160" height="70" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1.5" />
+
+    <!-- clapboard horizontal lines -->
     <g stroke="#E2D7BD" stroke-width="0.7">
-      <line x1="185" y1="222" x2="295" y2="222" />
-      <line x1="185" y1="234" x2="295" y2="234" />
-      <line x1="185" y1="246" x2="295" y2="246" />
-      <line x1="185" y1="258" x2="295" y2="258" />
-      <line x1="185" y1="270" x2="295" y2="270" />
-      <line x1="185" y1="282" x2="295" y2="282" />
+      <line x1="160" y1="242" x2="320" y2="242" />
+      <line x1="160" y1="254" x2="320" y2="254" />
+      <line x1="160" y1="266" x2="320" y2="266" />
+      <line x1="160" y1="278" x2="320" y2="278" />
+      <line x1="160" y1="290" x2="320" y2="290" />
     </g>
 
-    <!-- main roof (gable) -->
-    <polygon points="180,210 300,210 240,158" fill="url(#roof)" />
+    <!-- brick foundation -->
+    <rect x="157" y="300" width="166" height="11" fill="#A07060" stroke="#7A5448" stroke-width="0.6" />
+    <g stroke="#8C5E50" stroke-width="0.4" opacity="0.55">
+      <line x1="170" y1="305.5" x2="190" y2="305.5" />
+      <line x1="200" y1="305.5" x2="220" y2="305.5" />
+      <line x1="230" y1="305.5" x2="250" y2="305.5" />
+      <line x1="260" y1="305.5" x2="280" y2="305.5" />
+      <line x1="290" y1="305.5" x2="310" y2="305.5" />
+    </g>
 
-    <!-- roof shadow stripe -->
-    <polygon points="180,210 300,210 240,158" fill="#000" opacity="0.06" />
+    <!-- ===== bell tower (wider, shorter projection) ===== -->
+    <!-- tower body -->
+    <rect x="215" y="156" width="50" height="74" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1.3" />
+    <!-- tower clapboard (only on the visible upper portion) -->
+    <g stroke="#E2D7BD" stroke-width="0.5">
+      <line x1="215" y1="224" x2="265" y2="224" />
+      <line x1="215" y1="216" x2="265" y2="216" />
+    </g>
 
-    <!-- steeple base -->
-    <rect x="230" y="158" width="20" height="42" fill="#FAFAF6" stroke="#C7BBA0" stroke-width="1.3" />
-    <!-- steeple opening (bell window) -->
-    <rect x="234" y="166" width="12" height="14" fill="#5C4A3A" rx="6" />
+    <!-- louvered vent (painted shutters — light, not a dark opening) -->
+    <rect x="225" y="166" width="30" height="26" fill="#F4ECDB" stroke="#B8AC91" stroke-width="0.8" />
+    <g stroke="#C7BBA0" stroke-width="0.8">
+      <line x1="226" y1="171" x2="254" y2="171" />
+      <line x1="226" y1="176" x2="254" y2="176" />
+      <line x1="226" y1="181" x2="254" y2="181" />
+      <line x1="226" y1="186" x2="254" y2="186" />
+    </g>
 
-    <!-- steeple roof -->
-    <polygon points="226,158 254,158 240,118" fill="url(#roof)" />
+    <!-- small dark window in tower face, below louvers -->
+    <rect x="232" y="202" width="16" height="12" fill="#3A2D20" stroke="#1F1A14" stroke-width="0.5" />
+    <line x1="240" y1="202" x2="240" y2="214" stroke="#1F1A14" stroke-width="0.4" />
 
-    <!-- cross -->
-    <line x1="240" y1="100" x2="240" y2="118" stroke="#2A2520" stroke-width="2.2" stroke-linecap="round" />
-    <line x1="233" y1="106" x2="247" y2="106" stroke="#2A2520" stroke-width="2.2" stroke-linecap="round" />
+    <!-- flat tower cap with slight overhang -->
+    <rect x="210" y="151" width="60" height="6" fill="#6B5B47" />
+    <rect x="210" y="155" width="60" height="1.5" fill="#000" opacity="0.18" />
 
-    <!-- left window (arched) -->
-    <path d="M194 254 L 194 234 Q 194 224 204 224 Q 214 224 214 234 L 214 254 Z"
-          fill="#7DA398" stroke="#5A8074" stroke-width="1" />
-    <line x1="194" y1="240" x2="214" y2="240" stroke="#5A8074" stroke-width="0.7" />
-    <line x1="204" y1="224" x2="204" y2="254" stroke="#5A8074" stroke-width="0.7" />
+    <!-- cross on top -->
+    <line x1="240" y1="132" x2="240" y2="150" stroke="#2A2520" stroke-width="2" stroke-linecap="round" />
+    <line x1="232" y1="138" x2="248" y2="138" stroke="#2A2520" stroke-width="2" stroke-linecap="round" />
 
-    <!-- right window -->
-    <path d="M266 254 L 266 234 Q 266 224 276 224 Q 286 224 286 234 L 286 254 Z"
-          fill="#7DA398" stroke="#5A8074" stroke-width="1" />
-    <line x1="266" y1="240" x2="286" y2="240" stroke="#5A8074" stroke-width="0.7" />
-    <line x1="276" y1="224" x2="276" y2="254" stroke="#5A8074" stroke-width="0.7" />
+    <!-- ===== flanking windows (tall rectangular double-hung) ===== -->
+    <!-- left -->
+    <rect x="172" y="242" width="26" height="50" fill="#7DA398" stroke="#5A8074" stroke-width="1" />
+    <line x1="185" y1="242" x2="185" y2="292" stroke="#5A8074" stroke-width="0.6" />
+    <line x1="172" y1="267" x2="198" y2="267" stroke="#5A8074" stroke-width="0.6" />
+    <rect x="172" y="242" width="26" height="50" fill="none" stroke="#FAFAF6" stroke-width="0.3" />
 
-    <!-- door -->
-    <path d="M228 300 L 228 268 Q 228 256 240 256 Q 252 256 252 268 L 252 300 Z"
-          fill="#5C4A3A" />
-    <line x1="240" y1="263" x2="240" y2="298" stroke="#3A2D20" stroke-width="0.9" />
-    <circle cx="247" cy="282" r="0.9" fill="#C89B5B" />
+    <!-- right -->
+    <rect x="282" y="242" width="26" height="50" fill="#7DA398" stroke="#5A8074" stroke-width="1" />
+    <line x1="295" y1="242" x2="295" y2="292" stroke="#5A8074" stroke-width="0.6" />
+    <line x1="282" y1="267" x2="308" y2="267" stroke="#5A8074" stroke-width="0.6" />
+    <rect x="282" y="242" width="26" height="50" fill="none" stroke="#FAFAF6" stroke-width="0.3" />
 
-    <!-- steps -->
-    <rect x="222" y="300" width="36" height="4" fill="#9C8B70" />
-    <rect x="217" y="304" width="46" height="4" fill="#8A7A60" />
+    <!-- ===== double-door entrance ===== -->
+    <rect x="220" y="252" width="20" height="48" fill="#5C4A3A" />
+    <rect x="240" y="252" width="20" height="48" fill="#5C4A3A" />
+    <line x1="240" y1="252" x2="240" y2="300" stroke="#3A2D20" stroke-width="0.9" />
+    <line x1="220" y1="266" x2="260" y2="266" stroke="#3A2D20" stroke-width="0.5" />
+    <line x1="220" y1="284" x2="260" y2="284" stroke="#3A2D20" stroke-width="0.5" />
+    <circle cx="234" cy="278" r="0.9" fill="#C89B5B" />
+    <circle cx="246" cy="278" r="0.9" fill="#C89B5B" />
 
-    <!-- grass tufts -->
+    <!-- ===== concrete steps (prominent, 5 tiers, wide) ===== -->
+    <rect x="208" y="311" width="64" height="4" fill="#C2B8A0" stroke="#A89E89" stroke-width="0.3" />
+    <rect x="200" y="315" width="80" height="4" fill="#B5AB94" stroke="#9C927E" stroke-width="0.3" />
+    <rect x="192" y="319" width="96" height="4" fill="#A89E89" stroke="#908674" stroke-width="0.3" />
+    <rect x="184" y="323" width="112" height="4" fill="#9C927E" stroke="#847A6A" stroke-width="0.3" />
+    <rect x="176" y="327" width="128" height="4" fill="#908674" stroke="#766B5A" stroke-width="0.3" />
+
+    <!-- conifer shrubs flanking the steps -->
+    <g fill="#5A7A52">
+      <ellipse cx="150" cy="298" rx="6" ry="15" />
+      <ellipse cx="330" cy="298" rx="6" ry="15" />
+    </g>
+    <g fill="#4A6B44" opacity="0.85">
+      <ellipse cx="150" cy="302" rx="4" ry="10" />
+      <ellipse cx="330" cy="302" rx="4" ry="10" />
+    </g>
+
+    </g><!-- /church translation -->
+
+    <!-- grass tufts at periphery -->
     <g stroke="#6B8E5A" stroke-width="1.1" stroke-linecap="round" opacity="0.7">
       <line x1="100" y1="318" x2="100" y2="308" />
       <line x1="103" y1="318" x2="106" y2="310" />
       <line x1="97" y1="318" x2="94" y2="310" />
 
-      <line x1="142" y1="324" x2="142" y2="316" />
-      <line x1="145" y1="324" x2="148" y2="318" />
+      <line x1="120" y1="324" x2="120" y2="316" />
+      <line x1="123" y1="324" x2="126" y2="318" />
 
-      <line x1="340" y1="322" x2="340" y2="313" />
-      <line x1="343" y1="322" x2="346" y2="315" />
-      <line x1="337" y1="322" x2="334" y2="315" />
+      <line x1="360" y1="322" x2="360" y2="313" />
+      <line x1="363" y1="322" x2="366" y2="315" />
+      <line x1="357" y1="322" x2="354" y2="315" />
 
       <line x1="382" y1="328" x2="382" y2="319" />
       <line x1="385" y1="328" x2="388" y2="322" />
     </g>
-
-    <!-- small fence post by path -->
-    <line x1="310" y1="320" x2="310" y2="332" stroke="#7A6953" stroke-width="1.4" stroke-linecap="round" opacity="0.65" />
-    <line x1="305" y1="325" x2="315" y2="325" stroke="#7A6953" stroke-width="1" opacity="0.5" />
   </g>
 </svg>

@@ -25,41 +25,60 @@
   <!-- snow ground -->
   <path d="M0 215 Q 200 205 400 215 L 400 300 L 0 300 Z" fill="url(#g4ground)" />
 
-  <!-- church (snow on roof) -->
+  <!-- church -->
   <g transform="translate(120,40)">
+    <!-- gable roof base -->
+    <polygon points="54,160 100,128 146,160" fill="#6B5B47" />
+    <!-- snow on roof slopes -->
+    <polygon points="54,160 100,128 146,160" fill="#FFFFFF" opacity="0.5" />
+    <polygon points="58,158 142,158 100,140" fill="#FFFFFF" opacity="0.85" />
+
+    <!-- body -->
     <rect x="60" y="160" width="80" height="65" fill="#FAFAF6" stroke="#B8AC91" stroke-width="1.2" />
-    <g stroke="#E2D7BD" stroke-width="0.6">
-      <line x1="60" y1="172" x2="140" y2="172" />
-      <line x1="60" y1="184" x2="140" y2="184" />
-      <line x1="60" y1="196" x2="140" y2="196" />
-      <line x1="60" y1="208" x2="140" y2="208" />
+    <g stroke="#E2D7BD" stroke-width="0.5">
+      <line x1="60" y1="174" x2="140" y2="174" />
+      <line x1="60" y1="186" x2="140" y2="186" />
+      <line x1="60" y1="198" x2="140" y2="198" />
+      <line x1="60" y1="210" x2="140" y2="210" />
     </g>
-    <!-- roof base -->
-    <polygon points="56,160 144,160 100,122" fill="#6B5B47" />
-    <!-- snow on roof -->
-    <polygon points="56,160 144,160 100,124" fill="#FFFFFF" opacity="0.6" />
-    <polygon points="59,159 141,159 100,138" fill="#FFFFFF" opacity="0.85" />
+    <!-- foundation (mostly hidden by snow drift) -->
+    <rect x="58" y="225" width="84" height="6" fill="#7A5448" />
 
-    <!-- steeple base -->
-    <rect x="92" y="122" width="16" height="32" fill="#FAFAF6" stroke="#B8AC91" stroke-width="1" />
-    <rect x="95" y="128" width="10" height="11" fill="#5C4A3A" rx="5" />
-    <!-- steeple roof -->
-    <polygon points="89,122 111,122 100,90" fill="#6B5B47" />
-    <polygon points="91,121 109,121 100,98" fill="#FFFFFF" opacity="0.8" />
+    <!-- tower -->
+    <rect x="92" y="92" width="16" height="68" fill="#FAFAF6" stroke="#B8AC91" stroke-width="1" />
+    <!-- louvers -->
+    <rect x="94" y="98" width="12" height="14" fill="#2A2520" />
+    <g stroke="#85735B" stroke-width="0.5">
+      <line x1="95" y1="102" x2="105" y2="102" />
+      <line x1="95" y1="106" x2="105" y2="106" />
+    </g>
+    <!-- cap (with snow) -->
+    <rect x="89" y="90" width="22" height="3" fill="#6B5B47" />
+    <rect x="87" y="87" width="26" height="3" fill="#FFFFFF" opacity="0.85" />
+    <!-- cross with snow cap -->
+    <line x1="100" y1="80" x2="100" y2="90" stroke="#2A2520" stroke-width="1.6" stroke-linecap="round" />
+    <line x1="96" y1="84" x2="104" y2="84" stroke="#2A2520" stroke-width="1.6" stroke-linecap="round" />
+    <!-- tower window -->
+    <rect x="95" y="118" width="10" height="10" fill="#F4C97A" stroke="#A68352" stroke-width="0.5" />
 
-    <!-- cross -->
-    <line x1="100" y1="76" x2="100" y2="90" stroke="#2A2520" stroke-width="1.8" stroke-linecap="round" />
-    <line x1="94" y1="81" x2="106" y2="81" stroke="#2A2520" stroke-width="1.8" stroke-linecap="round" />
+    <!-- side windows: warm glow -->
+    <rect x="68" y="178" width="12" height="32" fill="#F4C97A" stroke="#A68352" stroke-width="0.7" />
+    <line x1="74" y1="178" x2="74" y2="210" stroke="#A68352" stroke-width="0.4" />
+    <line x1="68" y1="194" x2="80" y2="194" stroke="#A68352" stroke-width="0.4" />
+    <rect x="120" y="178" width="12" height="32" fill="#F4C97A" stroke="#A68352" stroke-width="0.7" />
+    <line x1="126" y1="178" x2="126" y2="210" stroke="#A68352" stroke-width="0.4" />
+    <line x1="120" y1="194" x2="132" y2="194" stroke="#A68352" stroke-width="0.4" />
 
-    <!-- windows: warm glow -->
-    <path d="M68 196 L 68 180 Q 68 173 76 173 Q 84 173 84 180 L 84 196 Z" fill="#F4C97A" stroke="#A68352" stroke-width="0.7" />
-    <path d="M116 196 L 116 180 Q 116 173 124 173 Q 132 173 132 180 L 132 196 Z" fill="#F4C97A" stroke="#A68352" stroke-width="0.7" />
-
-    <!-- door -->
-    <path d="M92 225 L 92 200 Q 92 191 100 191 Q 108 191 108 200 L 108 225 Z" fill="#5C4A3A" />
+    <!-- doors -->
+    <rect x="93" y="195" width="7" height="30" fill="#5C4A3A" />
+    <rect x="100" y="195" width="7" height="30" fill="#5C4A3A" />
 
     <!-- snow drift at base -->
-    <path d="M40 222 Q 100 215 160 222 L 160 235 L 40 235 Z" fill="#FFFFFF" opacity="0.9" />
+    <path d="M40 222 Q 100 213 160 222 L 160 240 L 40 240 Z" fill="#FFFFFF" opacity="0.95" />
+
+    <!-- shrubs poking through snow -->
+    <ellipse cx="56" cy="222" rx="3" ry="7" fill="#3F5A38" opacity="0.85" />
+    <ellipse cx="144" cy="222" rx="3" ry="7" fill="#3F5A38" opacity="0.85" />
   </g>
 
   <!-- falling snowflakes -->
