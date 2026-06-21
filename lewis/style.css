@@ -134,9 +134,28 @@ ul.clean li{margin:.28em 0}
 footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;
   color:var(--muted);font-size:15px;margin-top:20px}
 
+/* bottom tab bar — phones only */
+.tabbar{display:none}
+@media(max-width:739px){
+  header.top a.link{display:none}
+  header.top .bar{padding-right:52px}
+  .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;
+    background:var(--navbg);backdrop-filter:saturate(1.3) blur(10px);
+    border-top:1px solid var(--line);padding:6px 2px;
+    padding-bottom:calc(6px + env(safe-area-inset-bottom))}
+  .tabbar a{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;
+    color:var(--muted);text-decoration:none;padding:3px 1px;
+    font:600 10px/1.1 -apple-system,system-ui,sans-serif}
+  .tabbar a.on{color:var(--blue)}
+  .tabbar a:hover{text-decoration:none}
+  .tabbar a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tabbar svg{width:23px;height:23px;display:block}
+  body{padding-bottom:64px}
+}
+
 /* password gate */
 .gate{display:none}
-html.gated header.top, html.gated main#view, html.gated footer, html.gated .themebtn{display:none !important}
+html.gated header.top, html.gated main#view, html.gated footer, html.gated .themebtn, html.gated .tabbar{display:none !important}
 html.gated .gate{display:flex;position:fixed;inset:0;z-index:100;align-items:center;
   justify-content:center;background:var(--bg);padding:24px}
 .gate-card{max-width:360px;width:100%;text-align:center;background:var(--bg);

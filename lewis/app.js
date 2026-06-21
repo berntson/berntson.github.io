@@ -63,12 +63,25 @@
       places(t.places)+xlinks(t.links);
   }
 
+  var ICONS={
+    plan:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg>',
+    uppsala:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-6 8 6"/><path d="M6 9.6V20h12V9.6"/><path d="M10 20v-5h4v5"/></svg>',
+    stockholm:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3.5" width="12" height="13" rx="3"/><path d="M6 11h12"/><path d="M9 20l-2 1.6M15 20l2 1.6"/><circle cx="9.3" cy="13.7" r=".6" fill="currentColor" stroke="none"/><circle cx="14.7" cy="13.7" r=".6" fill="currentColor" stroke="none"/></svg>',
+    farther:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.5l1.7 4.5h12.6l1.7-4.5z"/><path d="M12 14.5V4l6.5 9z"/></svg>',
+    good:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5"/><circle cx="12" cy="7.9" r=".7" fill="currentColor" stroke="none"/></svg>'
+  };
+  var SHORT={plan:"Plan",uppsala:"Uppsala",stockholm:"Stockholm",farther:"Trips",good:"Info"};
+
   function setNav(active){
     var nav=document.getElementById('nav');
     nav.innerHTML='<a class="home" href="#/">Lewis Visit</a>'+
       D.sections.map(function(s){
         return '<a class="link'+(s.id===active?' on':'')+'" href="#/'+s.id+'">'+s.label+'</a>';
       }).join('');
+    var tb=document.getElementById('tabbar');
+    if(tb) tb.innerHTML=D.sections.map(function(s){
+      return '<a class="'+(s.id===active?'on':'')+'" href="#/'+s.id+'">'+(ICONS[s.id]||'')+'<span>'+(SHORT[s.id]||s.label)+'</span></a>';
+    }).join('');
   }
 
   function render(){
