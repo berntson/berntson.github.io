@@ -73,15 +73,19 @@
   var SHORT={plan:"Plan",uppsala:"Uppsala",stockholm:"Stockholm",farther:"Trips",good:"Info"};
 
   function setNav(active){
-    var nav=document.getElementById('nav');
-    nav.innerHTML='<a class="home" href="#/">Lewis Visit</a>'+
-      D.sections.map(function(s){
+    var menu=document.getElementById('menu');
+    if(menu){
+      var cur=(window.LewisTheme?window.LewisTheme.get():'light');
+      menu.innerHTML=D.sections.map(function(s){
         return '<a class="link'+(s.id===active?' on':'')+'" href="#/'+s.id+'">'+s.label+'</a>';
-      }).join('');
-    var tb=document.getElementById('tabbar');
-    if(tb) tb.innerHTML=D.sections.map(function(s){
-      return '<a class="'+(s.id===active?'on':'')+'" href="#/'+s.id+'">'+(ICONS[s.id]||'')+'<span>'+(SHORT[s.id]||s.label)+'</span></a>';
-    }).join('');
+      }).join('')+
+      '<div class="themeopt" role="group" aria-label="Theme">'+
+        '<button type="button" class="topt'+(cur==='light'?' on':'')+'" data-set="light">Light</button>'+
+        '<button type="button" class="topt'+(cur==='dark'?' on':'')+'" data-set="dark">Dark</button>'+
+      '</div>';
+    }
+    document.documentElement.classList.remove('menu-open');
+    var b=document.getElementById('burger'); if(b) b.setAttribute('aria-expanded','false');
   }
 
   function render(){
@@ -107,6 +111,29 @@
     scrollTo(0,0);
   }
 
+  window.addEventListener('DOMContentLoaded', function(){
+    var b=document.getElementById('burger');
+    if(b) b.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open=document.documentElement.classList.toggle('menu-open');
+      b.setAttribute('aria-expanded', open?'true':'false');
+    });
+    var menu=document.getElementById('menu');
+    if(menu) menu.addEventListener('click', function(e){
+      var t=e.target.closest('[data-set]'); if(!t) return;
+      e.stopPropagation();
+      if(window.LewisTheme) window.LewisTheme.set(t.getAttribute('data-set'));
+      menu.querySelectorAll('.topt').forEach(function(x){
+        x.classList.toggle('on', x.getAttribute('data-set')===(window.LewisTheme?window.LewisTheme.get():''));
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!document.documentElement.classList.contains('menu-open')) return;
+      if(e.target.closest('#menu')) return;
+      document.documentElement.classList.remove('menu-open');
+      if(b) b.setAttribute('aria-expanded','false');
+    });
+  });
   window.addEventListener('hashchange', render);
   window.addEventListener('DOMContentLoaded', render);
 })();
