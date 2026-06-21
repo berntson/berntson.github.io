@@ -73,15 +73,12 @@
   var SHORT={plan:"Plan",uppsala:"Uppsala",stockholm:"Stockholm",farther:"Trips",good:"Info"};
 
   function setNav(active){
-    var nav=document.getElementById('nav');
-    nav.innerHTML='<a class="home" href="#/">Lewis Visit</a>'+
-      D.sections.map(function(s){
-        return '<a class="link'+(s.id===active?' on':'')+'" href="#/'+s.id+'">'+s.label+'</a>';
-      }).join('');
-    var tb=document.getElementById('tabbar');
-    if(tb) tb.innerHTML=D.sections.map(function(s){
-      return '<a class="'+(s.id===active?'on':'')+'" href="#/'+s.id+'">'+(ICONS[s.id]||'')+'<span>'+(SHORT[s.id]||s.label)+'</span></a>';
+    var menu=document.getElementById('menu');
+    if(menu) menu.innerHTML=D.sections.map(function(s){
+      return '<a class="link'+(s.id===active?' on':'')+'" href="#/'+s.id+'">'+s.label+'</a>';
     }).join('');
+    document.documentElement.classList.remove('menu-open');
+    var b=document.getElementById('burger'); if(b) b.setAttribute('aria-expanded','false');
   }
 
   function render(){
@@ -107,6 +104,20 @@
     scrollTo(0,0);
   }
 
+  window.addEventListener('DOMContentLoaded', function(){
+    var b=document.getElementById('burger');
+    if(b) b.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open=document.documentElement.classList.toggle('menu-open');
+      b.setAttribute('aria-expanded', open?'true':'false');
+    });
+    document.addEventListener('click', function(e){
+      if(!document.documentElement.classList.contains('menu-open')) return;
+      if(e.target.closest('#menu')) return;
+      document.documentElement.classList.remove('menu-open');
+      if(b) b.setAttribute('aria-expanded','false');
+    });
+  });
   window.addEventListener('hashchange', render);
   window.addEventListener('DOMContentLoaded', render);
 })();
