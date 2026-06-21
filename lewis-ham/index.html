@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lewis Visit</title>
+<link rel="stylesheet" href="style.css?v=6">
+<script src="theme.js?v=6"></script>
+<script src="gate.js?v=6"></script>
+</head>
+<body>
+<header class="top"><div class="bar">
+  <a class="home" href="#/">Lewis Visit</a>
+  <nav class="menu" id="menu"></nav>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+<main class="wrap" id="view"></main>
+<footer>Daniel &amp; Skye · Östra Ågatan, Uppsala</footer>
+
+<div class="gate" id="gate">
+  <form class="gate-card" id="gate-form">
+    <div class="dot"></div>
+    <h1>Lewis Visit</h1>
+    <p>A little guide for your trip. Enter the password we sent you.</p>
+    <input id="gate-pw" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password">
+    <button type="submit">Enter</button>
+    <p id="gate-err" class="gate-err">That's not it — try again.</p>
+  </form>
+</div>
+
+<script src="data.js?v=5"></script>
+<script src="app.js?v=5"></script>
+</body>
+</html>
