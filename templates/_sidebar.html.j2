@@ -1,0 +1,25 @@
+{# Shared sidebar fragment. Caller supplies:
+   - root: relative path to the redesign-v2 root (e.g. "../../" from /teaching/<slug>/)
+   - current: which section is active ("blog", "papers", "teaching", "code", "about", "elsewhere")
+#}
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <p class="name"><a href="{{ root }}">Daniel Berntson</a></p>
+        <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false"></button>
+    </div>
+    <nav aria-label="Sections">
+        <ul>
+            <li><a href="{{ root }}"{% if current == 'blog' %} aria-current="page"{% endif %}>Blog</a></li>
+            <li><a href="{{ root }}papers/"{% if current == 'papers' %} aria-current="page"{% endif %}>Papers</a></li>
+            <li><a href="{{ root }}teaching/"{% if current == 'teaching' %} aria-current="page"{% endif %}>Teaching</a></li>
+            <li><a href="{{ root }}code/"{% if current == 'code' %} aria-current="page"{% endif %}>Code</a></li>
+            <li><a href="{{ root }}about/"{% if current == 'about' %} aria-current="page"{% endif %}>About</a></li>
+            <li><a href="{{ root }}elsewhere/"{% if current == 'elsewhere' %} aria-current="page"{% endif %}>Elsewhere</a></li>
+        </ul>
+    </nav>
+    <div class="theme-toggle" role="group" aria-label="Theme">
+        <button type="button" data-theme="light" aria-label="Light"><span aria-hidden="true">☀</span></button>
+        <button type="button" data-theme="dark" aria-label="Dark"><span aria-hidden="true">☾</span></button>
+        <button type="button" data-theme="auto" aria-label="System"><span aria-hidden="true">◐</span></button>
+    </div>
+</aside>

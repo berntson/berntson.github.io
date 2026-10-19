@@ -1,0 +1,56 @@
+{# Shared theme + menu toggle scripts. Place at end of body. #}
+<script>
+    (function () {
+        var buttons = document.querySelectorAll('.theme-toggle button');
+        var meta = document.getElementById('theme-color-meta');
+        function effectiveTheme() {
+            var t = document.documentElement.dataset.theme;
+            if (t === 'light' || t === 'dark') return t;
+            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        function updateMeta() {
+            if (!meta) return;
+            meta.setAttribute('content', effectiveTheme() === 'light' ? '#d0d5e1' : '#1a1b26');
+        }
+        function updateButtons() {
+            var current;
+            try { current = localStorage.getItem('theme'); } catch (e) { current = null; }
+            if (current !== 'light' && current !== 'dark') current = 'auto';
+            buttons.forEach(function (b) {
+                b.setAttribute('aria-pressed', b.dataset.theme === current ? 'true' : 'false');
+            });
+        }
+        buttons.forEach(function (b) {
+            b.addEventListener('click', function () {
+                var theme = b.dataset.theme;
+                try {
+                    if (theme === 'auto') {
+                        localStorage.removeItem('theme');
+                        delete document.documentElement.dataset.theme;
+                    } else {
+                        localStorage.setItem('theme', theme);
+                        document.documentElement.dataset.theme = theme;
+                    }
+                } catch (e) {}
+                updateButtons();
+                updateMeta();
+            });
+        });
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateMeta);
+        }
+        updateButtons();
+        updateMeta();
+    })();
+
+    (function () {
+        var toggle = document.querySelector('.menu-toggle');
+        var sidebar = document.querySelector('.sidebar');
+        if (!toggle || !sidebar) return;
+        toggle.addEventListener('click', function () {
+            var isOpen = sidebar.dataset.menuOpen === 'true';
+            sidebar.dataset.menuOpen = isOpen ? 'false' : 'true';
+            toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        });
+    })();
+</script>

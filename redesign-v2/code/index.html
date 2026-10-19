@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Code — Daniel Berntson</title>
+    <meta name="description" content="Code projects by Daniel Berntson.">
+    <meta name="theme-color" content="#1a1b26" id="theme-color-meta">
+    <meta name="color-scheme" content="dark light">
+    <meta name="darkreader-lock">
+
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'light' || stored === 'dark') {
+                    document.documentElement.dataset.theme = stored;
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+    <div class="layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <p class="name"><a href="../">Daniel Berntson</a></p>
+                <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false"></button>
+            </div>
+            <nav aria-label="Sections">
+                <ul>
+                    <li><a href="../">Blog</a></li>
+                    <li><a href="../papers/">Papers</a></li>
+                    <li><a href="../teaching/">Teaching</a></li>
+                    <li><a href="../code/" aria-current="page">Code</a></li>
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../elsewhere/">Elsewhere</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle" role="group" aria-label="Theme">
+                <button type="button" data-theme="light" aria-label="Light"><span aria-hidden="true">☀</span></button>
+                <button type="button" data-theme="dark" aria-label="Dark"><span aria-hidden="true">☾</span></button>
+                <button type="button" data-theme="auto" aria-label="System"><span aria-hidden="true">◐</span></button>
+            </div>
+        </aside>
+
+        <main>
+            <ul class="entry-list">
+                <li>
+                    <div class="entry-row">
+                        <div class="entry-title"><a href="https://github.com/berntson/paper-style">paper-style</a></div>
+                        <div class="entry-meta">LaTeX</div>
+                    </div>
+                    <p class="entry-blurb">A LaTeX class and module library for philosophy papers. Standardized term marking, system naming, build conventions, and submission overrides for journal styles.</p>
+                </li>
+                <li>
+                    <div class="entry-row">
+                        <div class="entry-title"><a href="https://github.com/berntson/nutrition-mcp">nutrition-mcp</a></div>
+                        <div class="entry-meta">Python</div>
+                    </div>
+                    <p class="entry-blurb">A Model Context Protocol server for tracking food intake and querying nutrition data from a personal SQLite store.</p>
+                </li>
+                <li>
+                    <div class="entry-row">
+                        <div class="entry-title"><a href="https://github.com/berntson/aspect-theory">aspect-theory</a></div>
+                        <div class="entry-meta">Python</div>
+                    </div>
+                    <p class="entry-blurb">Companion code for the Interval Orders paper: model construction, completeness checking, and a small DSL for specifying conditional-logic frames.</p>
+                </li>
+                <li>
+                    <div class="entry-row">
+                        <div class="entry-title"><a href="https://github.com/berntson/berntson.github.io">berntson.github.io</a></div>
+                        <div class="entry-meta">HTML, Python</div>
+                    </div>
+                    <p class="entry-blurb">This site. Static HTML plus a small <code>build.py</code> that renders blog posts from markdown.</p>
+                </li>
+            </ul>
+        </main>
+
+    </div>
+
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.theme-toggle button');
+            var meta = document.getElementById('theme-color-meta');
+            function effectiveTheme() {
+                var t = document.documentElement.dataset.theme;
+                if (t === 'light' || t === 'dark') return t;
+                return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            function updateMeta() {
+                if (!meta) return;
+                meta.setAttribute('content', effectiveTheme() === 'light' ? '#d0d5e1' : '#1a1b26');
+            }
+            function updateButtons() {
+                var current;
+                try { current = localStorage.getItem('theme'); } catch (e) { current = null; }
+                if (current !== 'light' && current !== 'dark') current = 'auto';
+                buttons.forEach(function (b) {
+                    b.setAttribute('aria-pressed', b.dataset.theme === current ? 'true' : 'false');
+                });
+            }
+            buttons.forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var theme = b.dataset.theme;
+                    try {
+                        if (theme === 'auto') {
+                            localStorage.removeItem('theme');
+                            delete document.documentElement.dataset.theme;
+                        } else {
+                            localStorage.setItem('theme', theme);
+                            document.documentElement.dataset.theme = theme;
+                        }
+                    } catch (e) {}
+                    updateButtons();
+                    updateMeta();
+                });
+            });
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateMeta);
+            }
+            updateButtons();
+            updateMeta();
+        })();
+
+        (function () {
+            var toggle = document.querySelector('.menu-toggle');
+            var sidebar = document.querySelector('.sidebar');
+            if (!toggle || !sidebar) return;
+            toggle.addEventListener('click', function () {
+                var isOpen = sidebar.dataset.menuOpen === 'true';
+                sidebar.dataset.menuOpen = isOpen ? 'false' : 'true';
+                toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            });
+        })();
+    </script>
+</body>
+</html>

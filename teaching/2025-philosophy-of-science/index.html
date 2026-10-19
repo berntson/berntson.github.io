@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Philosophy of Science — Spring 2025 — Daniel Berntson</title>
+    <meta name="description" content="Syllabus: Philosophy of Science, Spring 2025, Uppsala University.">
+
+    <meta name="theme-color" content="#1f1f1f" id="theme-color-meta">
+
+    <meta name="color-scheme" content="dark light">
+    <meta name="darkreader-lock">
+
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'light' || stored === 'dark') {
+                    document.documentElement.dataset.theme = stored;
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+<body>
+    <header class="site">
+        <p class="name"><a href="/">Daniel Berntson</a></p>
+    </header>
+
+    <main>
+        <article class="syllabus">
+            <header class="syllabus-header">
+                <h1 class="syllabus-title">Philosophy of Science</h1>
+                <p class="syllabus-meta">
+                    Spring 2025 · Uppsala University · VT 25
+                </p>
+                
+                <p class="syllabus-line">
+                    Daniel Berntson · <a href="mailto:daniel.berntson@filosofi.uu.se">daniel.berntson@filosofi.uu.se</a>
+                </p>
+                
+                
+            </header>
+
+            
+            <section class="syllabus-section">
+                <h2>Description</h2>
+                <p>This course is an introduction to the philosophy of science. Our general
+approach will be to cover a selection of topics. Some of these will be
+about the general nature of scientific inquiry. Does science aim at truth?
+Is science value neutral? Some will be about the philosophy of physics.
+What are scientific laws? Do we have reason to think that the laws are
+fine-tuned? Others will be from the special sciences. What is a species?
+Does biology include natural kinds? Finally, we will consider questions
+from the epistemology and ethics of science. Can science give us reason to
+believe in things outside our physical universe? And what might sort of
+unique ethical questions might be raised by new developments in artificial
+intelligence?</p>
+            </section>
+            
+
+            
+            <section class="syllabus-section">
+                <h2>Objectives</h2>
+                <ul class="prose-list">
+                    <li>Gain an understanding of the selected topics in the philosophy of science.</li><li>Analyze the strengths and weaknesses of the theories studied.</li><li>Create original counterexamples and counterarguments.</li><li>Deploy a range of concepts and conceptual tools.</li><li>Express ideas using clear and concise English prose.</li>
+                </ul>
+            </section>
+            
+
+            
+            <section class="syllabus-section">
+                <h2>Required Texts</h2>
+                <p>None. All readings will be made available through links posted on Studium.</p>
+                
+            </section>
+            
+
+            
+            <section class="syllabus-section">
+                <h2>Assessment</h2>
+                <p>Examinations for the course will consist of a short paper (1000 words)
+and a final paper (1500 words). Both papers must be written in English.
+You must receive a passing grade on both assignments in order to pass
+the course.</p>
+                
+                <dl class="components">
+                    
+                    <dt>Short Paper <span class="component-length">(1000 words)</span></dt>
+                    <dd>
+                        
+                        
+                        
+                        
+                        Due 2025-04-30 · 40%
+                        
+                    </dd>
+                    
+                    <dt>Final Paper <span class="component-length">(1500 words)</span></dt>
+                    <dd>
+                        
+                        
+                        
+                        
+                        Due 2025-05-09 · 60%
+                        
+                    </dd>
+                    
+                </dl>
+                
+                
+            </section>
+            
+
+            
+
+            
+
+            
+            <section class="syllabus-section">
+                <h2>Policies</h2>
+                
+                <div class="policy">
+                    <h3>Education</h3>
+                    <p>The teaching of sessions will not be formally divided into lectures and
+seminars. Thus, all sessions will be interactive. The goal is for us to
+do philosophy together by asking questions, raising objections, and
+having conversations. Slides and lecture notes will regularly be made
+available. Attendance will not be recorded and is not technically
+required. But practically speaking, it will be difficult to learn the
+material and pass the course without regularly attending lectures and
+participating in discussions.</p>
+                    
+                </div>
+                
+                <div class="policy">
+                    <h3>Plagiarism</h3>
+                    <p>Students are responsible for knowing what constitutes cheating and
+plagiarism, along with the corresponding consequences for engaging in
+either. Information about cheating and plagiarism can be found on the
+<a href="https://www.uu.se/en/students/department/philosophy/studying-philosophy/cheating-and-plagiarism">department website</a>.</p>
+                    
+                </div>
+                
+                <div class="policy">
+                    <h3>Schedule</h3>
+                    <p>The schedule for topics and readings can be found in Studium under the
+course modules section. Links to all readings can also be found there.</p>
+                    
+                </div>
+                
+            </section>
+            
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="theme-toggle" role="group" aria-label="Theme">
+            <span class="label">Theme:</span>
+            <button type="button" data-theme="light">Light</button>
+            <button type="button" data-theme="dark">Dark</button>
+            <button type="button" data-theme="auto">System</button>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.theme-toggle button');
+            var meta = document.getElementById('theme-color-meta');
+
+            function effectiveTheme() {
+                var t = document.documentElement.dataset.theme;
+                if (t === 'light' || t === 'dark') return t;
+                return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            function updateMeta() {
+                if (!meta) return;
+                meta.setAttribute('content', effectiveTheme() === 'light' ? '#f4f0e6' : '#1f1f1f');
+            }
+            function updateButtons() {
+                var current;
+                try { current = localStorage.getItem('theme'); } catch (e) { current = null; }
+                if (current !== 'light' && current !== 'dark') current = 'auto';
+                buttons.forEach(function (b) {
+                    b.setAttribute('aria-pressed', b.dataset.theme === current ? 'true' : 'false');
+                });
+            }
+            buttons.forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var theme = b.dataset.theme;
+                    try {
+                        if (theme === 'auto') {
+                            localStorage.removeItem('theme');
+                            delete document.documentElement.dataset.theme;
+                        } else {
+                            localStorage.setItem('theme', theme);
+                            document.documentElement.dataset.theme = theme;
+                        }
+                    } catch (e) {}
+                    updateButtons();
+                    updateMeta();
+                });
+            });
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateMeta);
+            }
+            updateButtons();
+            updateMeta();
+        })();
+    </script>
+</body>
+</html>

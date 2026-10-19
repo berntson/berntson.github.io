@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ data.title }}{% if data.term %} — {{ data.term }}{% endif %} — Daniel Berntson</title>
+    <meta name="description" content="{{ data.title }}{% if data.term %}, {{ data.term }}{% endif %}{% if data.institution and data.institution.name %}, {{ data.institution.name }}{% endif %}.">
+
+    <meta name="theme-color" content="#1a1b26" id="theme-color-meta">
+    <meta name="color-scheme" content="dark light">
+    <meta name="darkreader-lock">
+
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'light' || stored === 'dark') {
+                    document.documentElement.dataset.theme = stored;
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ root }}style.css">
+</head>
+<body>
+    <div class="layout">
+
+        {% include "_sidebar.html.j2" %}
+
+        <main>
+            <article class="course-overview">
+                <header class="course-header">
+                    <h1 class="course-title">{{ data.title }}</h1>
+                    <p class="course-meta">
+                        {% if data.term %}{{ data.term }}{% endif %}{% if data.term and data.institution and data.institution.name %} · {% endif %}{% if data.institution and data.institution.name %}{{ data.institution.name }}{% endif %}
+                    </p>
+                </header>
+
+                {% if data.description %}
+                <div class="course-description">
+                    {{ data.description | md }}
+                </div>
+                {% endif %}
+
+                <p class="course-links">
+                    <a href="syllabus/">Read syllabus</a>
+                    {% if has_pdf %}<span class="sep">·</span><a href="syllabus.pdf">Download PDF</a>{% endif %}
+                </p>
+            </article>
+        </main>
+
+    </div>
+
+    {% include "_page_scripts.html.j2" %}
+</body>
+</html>

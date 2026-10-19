@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Conventions — Fall 2024 — Daniel Berntson</title>
+    <meta name="description" content="Syllabus: Conventions, Fall 2024, Uppsala University.">
+
+    <meta name="theme-color" content="#1f1f1f" id="theme-color-meta">
+
+    <meta name="color-scheme" content="dark light">
+    <meta name="darkreader-lock">
+
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'light' || stored === 'dark') {
+                    document.documentElement.dataset.theme = stored;
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+<body>
+    <header class="site">
+        <p class="name"><a href="/">Daniel Berntson</a></p>
+    </header>
+
+    <main>
+        <article class="syllabus">
+            <header class="syllabus-header">
+                <h1 class="syllabus-title">Conventions</h1>
+                <p class="syllabus-meta">
+                    Fall 2024 · Uppsala University · CM
+                </p>
+                
+                <p class="syllabus-line">
+                    Daniel Berntson · <a href="mailto:daniel.berntson@filosofi.uu.se">daniel.berntson@filosofi.uu.se</a>
+                </p>
+                
+                
+            </header>
+
+            
+            <section class="syllabus-section">
+                <h2>Description</h2>
+                <p>A CM-level Uppsala course on conventions in philosophy. (Source syllabus
+not located; description to be filled in.)</p>
+            </section>
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="theme-toggle" role="group" aria-label="Theme">
+            <span class="label">Theme:</span>
+            <button type="button" data-theme="light">Light</button>
+            <button type="button" data-theme="dark">Dark</button>
+            <button type="button" data-theme="auto">System</button>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.theme-toggle button');
+            var meta = document.getElementById('theme-color-meta');
+
+            function effectiveTheme() {
+                var t = document.documentElement.dataset.theme;
+                if (t === 'light' || t === 'dark') return t;
+                return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            function updateMeta() {
+                if (!meta) return;
+                meta.setAttribute('content', effectiveTheme() === 'light' ? '#f4f0e6' : '#1f1f1f');
+            }
+            function updateButtons() {
+                var current;
+                try { current = localStorage.getItem('theme'); } catch (e) { current = null; }
+                if (current !== 'light' && current !== 'dark') current = 'auto';
+                buttons.forEach(function (b) {
+                    b.setAttribute('aria-pressed', b.dataset.theme === current ? 'true' : 'false');
+                });
+            }
+            buttons.forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var theme = b.dataset.theme;
+                    try {
+                        if (theme === 'auto') {
+                            localStorage.removeItem('theme');
+                            delete document.documentElement.dataset.theme;
+                        } else {
+                            localStorage.setItem('theme', theme);
+                            document.documentElement.dataset.theme = theme;
+                        }
+                    } catch (e) {}
+                    updateButtons();
+                    updateMeta();
+                });
+            });
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateMeta);
+            }
+            updateButtons();
+            updateMeta();
+        })();
+    </script>
+</body>
+</html>

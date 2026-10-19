@@ -232,6 +232,12 @@ ul.entries > li > a:focus-visible {
     text-decoration-color: var(--link-hov);
 }
 
+ul.entries > li .entry-meta {
+    color: var(--fg-mute);
+    font-size: 0.88rem;
+    margin-left: 0.4rem;
+}
+
 
 /* ---------- Footer (theme only) ---------- */
 
@@ -280,6 +286,211 @@ footer.site-footer {
 .theme-toggle button:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
+}
+
+/* ---------- Syllabus page ---------- */
+
+.syllabus {
+    max-width: 60ch;
+}
+
+.syllabus-header {
+    margin-bottom: 2.5rem;
+}
+
+.syllabus-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.syllabus-meta,
+.syllabus-line {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.syllabus-meta { margin-bottom: 0.35rem; }
+
+.syllabus-section {
+    margin-top: 2.5rem;
+}
+
+.syllabus-section h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 0.75rem;
+}
+
+.syllabus-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+    letter-spacing: -0.005em;
+}
+
+.syllabus-section p {
+    margin: 0 0 1rem;
+    line-height: 1.7;
+}
+
+.syllabus-section p:last-child { margin-bottom: 0; }
+
+.syllabus-section a {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--fg-mute) 40%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    color: inherit;
+    transition: color 120ms, text-decoration-color 120ms;
+}
+
+.syllabus-section a:hover,
+.syllabus-section a:focus-visible {
+    color: var(--link-hov);
+    text-decoration-color: var(--link-hov);
+}
+
+.prose-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.prose-list li {
+    padding: 0.15rem 0 0.15rem 1.5rem;
+    position: relative;
+    line-height: 1.7;
+}
+
+.prose-list li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    color: var(--fg-mute);
+}
+
+/* Assessment components — definition list */
+
+dl.components {
+    margin: 0.5rem 0 1rem;
+}
+
+dl.components dt {
+    font-weight: 600;
+    margin: 0.8rem 0 0.1rem;
+}
+
+dl.components dt:first-of-type {
+    margin-top: 0;
+}
+
+dl.components dt .component-length {
+    font-weight: 400;
+    color: var(--fg-mute);
+    margin-left: 0.25rem;
+}
+
+dl.components dd {
+    margin: 0 0 0.3rem;
+    line-height: 1.6;
+}
+
+dl.components dd .component-notes {
+    margin-top: 0.25rem;
+    color: var(--fg-mute);
+    font-size: 0.95rem;
+}
+
+/* Schedule */
+
+ol.schedule {
+    list-style: none;
+    counter-reset: meeting;
+    padding: 0;
+    margin: 0;
+}
+
+ol.schedule > li {
+    counter-increment: meeting;
+    padding: 0.6rem 0 0.6rem 2.5rem;
+    border-top: 1px solid var(--rule);
+    position: relative;
+    line-height: 1.6;
+}
+
+ol.schedule > li:last-child {
+    border-bottom: 1px solid var(--rule);
+}
+
+ol.schedule > li::before {
+    content: counter(meeting);
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 2rem;
+    color: var(--fg-mute);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+ol.schedule .schedule-date {
+    color: var(--fg-mute);
+    font-size: 0.9rem;
+    margin-right: 0.75rem;
+    font-variant-numeric: tabular-nums;
+}
+
+ol.schedule .schedule-topic {
+    /* inherits color */
+}
+
+ol.schedule .schedule-readings {
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--fg-mute);
+}
+
+ol.schedule .schedule-readings .reading-label {
+    margin-right: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+}
+
+/* Readings list (standalone) */
+
+ul.readings {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.readings > li {
+    padding: 0.4rem 0;
+    border-top: 1px solid var(--rule);
+    line-height: 1.6;
+}
+
+ul.readings > li:last-child {
+    border-bottom: 1px solid var(--rule);
+}
+
+ul.readings .reading-note {
+    color: var(--fg-mute);
+    font-size: 0.9rem;
+}
+
+/* Policies */
+
+.policy + .policy {
+    margin-top: 1.5rem;
 }
 
 /* ---------- Reduce motion ---------- */

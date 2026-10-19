@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ data.title }}{% if data.term %} — {{ data.term }}{% endif %} — Syllabus — Daniel Berntson</title>
+    <meta name="description" content="Syllabus: {{ data.title }}{% if data.term %}, {{ data.term }}{% endif %}{% if data.institution and data.institution.name %}, {{ data.institution.name }}{% endif %}.">
+
+    <meta name="theme-color" content="#1a1b26" id="theme-color-meta">
+    <meta name="color-scheme" content="dark light">
+    <meta name="darkreader-lock">
+
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'light' || stored === 'dark') {
+                    document.documentElement.dataset.theme = stored;
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ root }}style.css">
+</head>
+<body>
+    <div class="layout">
+
+        {% include "_sidebar.html.j2" %}
+
+        <main>
+            <article class="syllabus">
+                <header class="syllabus-header">
+                    <h1 class="syllabus-title">{{ data.title }}</h1>
+                    <p class="syllabus-meta">
+                        {% if data.term %}{{ data.term }}{% endif %}{% if data.term and data.institution and data.institution.name %} · {% endif %}{% if data.institution and data.institution.name %}{{ data.institution.name }}{% endif %}{% if data.code %} · {{ data.code }}{% endif %}
+                    </p>
+                    {% if data.instructor %}
+                    <p class="syllabus-line">
+                        {{ data.instructor.name }}{% if data.instructor.email %} · <a href="mailto:{{ data.instructor.email }}">{{ data.instructor.email }}</a>{% endif %}{% if data.instructor.office %} · {{ data.instructor.office }}{% endif %}{% if data.instructor.office_hours %} · Office hours: {{ data.instructor.office_hours }}{% endif %}
+                    </p>
+                    {% endif %}
+                    {% if data.meeting and (data.meeting.schedule or data.meeting.location) %}
+                    <p class="syllabus-line">
+                        {% if data.meeting.schedule %}{{ data.meeting.schedule }}{% endif %}{% if data.meeting.schedule and data.meeting.location %} · {% endif %}{% if data.meeting.location %}{{ data.meeting.location }}{% endif %}
+                    </p>
+                    {% endif %}
+                </header>
+
+                {% if data.description %}
+                <section class="syllabus-section">
+                    <h2>Description</h2>
+                    {{ data.description | md }}
+                </section>
+                {% endif %}
+
+                {% if data.objectives %}
+                <section class="syllabus-section">
+                    <h2>Objectives</h2>
+                    <ul class="prose-list">
+                        {% for obj in data.objectives %}<li>{{ obj | md_inline }}</li>{% endfor %}
+                    </ul>
+                </section>
+                {% endif %}
+
+                {% if data.required_texts %}
+                <section class="syllabus-section">
+                    <h2>Required Texts</h2>
+                    {% if data.required_texts.body %}{{ data.required_texts.body | md }}{% endif %}
+                    {% if data.required_texts.bullets %}
+                    <ul class="prose-list">
+                        {% for b in data.required_texts.bullets %}<li>{{ b | md_inline }}</li>{% endfor %}
+                    </ul>
+                    {% endif %}
+                </section>
+                {% endif %}
+
+                {% if data.assessment %}
+                <section class="syllabus-section">
+                    <h2>Assessment</h2>
+                    {% if data.assessment.body %}{{ data.assessment.body | md }}{% endif %}
+                    {% if data.assessment.components %}
+                    <dl class="components">
+                        {% for c in data.assessment.components %}
+                        <dt>{{ c.name }}{% if c.length %} <span class="component-length">({{ c.length }})</span>{% endif %}</dt>
+                        <dd>
+                            {% set parts = [] %}
+                            {% if c.due_label %}{% set _ = parts.append("Due " ~ c.due_label) %}{% elif c.due %}{% set _ = parts.append("Due " ~ c.due) %}{% endif %}
+                            {% if c.weight %}{% set _ = parts.append(c.weight) %}{% endif %}
+                            {% if c.grading %}{% set _ = parts.append(c.grading) %}{% endif %}
+                            {{ parts | join(" · ") }}
+                            {% if c.notes %}<div class="component-notes">{{ c.notes | md_inline }}</div>{% endif %}
+                        </dd>
+                        {% endfor %}
+                    </dl>
+                    {% endif %}
+                    {% if data.assessment.notes %}{{ data.assessment.notes | md }}{% endif %}
+                </section>
+                {% endif %}
+
+                {% if data.schedule %}
+                <section class="syllabus-section">
+                    <h2>Schedule</h2>
+                    <ol class="schedule">
+                        {% for s in data.schedule %}
+                        <li>
+                            <span class="schedule-date">{{ s.date or "TBA" }}</span>
+                            <span class="schedule-topic">{{ s.topic }}</span>
+                            {% if s.primary or s.secondary %}
+                            <div class="schedule-readings">
+                                {% if s.primary %}
+                                <div class="schedule-readings-line"><span class="reading-label">Primary:</span>
+                                    {% for key in s.primary %}{% if readings_by_key[key] %}{{ readings_by_key[key] | cite_html | safe }}{% if not loop.last %}; {% endif %}{% endif %}{% endfor %}
+                                </div>
+                                {% endif %}
+                                {% if s.secondary %}
+                                <div class="schedule-readings-line"><span class="reading-label">Secondary:</span>
+                                    {% for key in s.secondary %}{% if readings_by_key[key] %}{{ readings_by_key[key] | cite_html | safe }}{% if not loop.last %}; {% endif %}{% endif %}{% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ol>
+                </section>
+                {% endif %}
+
+                {% if data.readings %}
+                <section class="syllabus-section">
+                    <h2>Readings</h2>
+                    <ul class="readings">
+                        {% for r in data.readings %}
+                        <li>{{ r | cite_html | safe }}</li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                {% endif %}
+
+                {% if data.policies %}
+                <section class="syllabus-section">
+                    <h2>Policies</h2>
+                    {% for p in data.policies %}
+                    <div class="policy">
+                        <h3>{{ p.title }}</h3>
+                        {% if p.body %}{{ p.body | md }}{% endif %}
+                        {% if p.bullets %}
+                        <ul class="prose-list">
+                            {% for b in p.bullets %}<li>{{ b | md_inline }}</li>{% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </section>
+                {% endif %}
+
+                <p class="syllabus-back"><a href="../">← Back to course overview</a></p>
+            </article>
+        </main>
+
+    </div>
+
+    {% include "_page_scripts.html.j2" %}
+</body>
+</html>
