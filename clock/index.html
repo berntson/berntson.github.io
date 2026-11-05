@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exam Clock</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --face: #fbf9f4;
+    --rim: #d9d3c6;
+    --tick: #a69f90;
+    --ink: #2b2a27;
+    --muted: #7a7466;
+    --hand: #2b2a27;
+    --accent: #4a7c74;
+    --note-bg: #eae4d6;
+    --warn: #8a5a1c;
+  }
+  :root[data-theme="dark"] {
+    --bg: #101317;
+    --face: #161b21;
+    --rim: #2a313a;
+    --tick: #56606c;
+    --ink: #e4e2dc;
+    --muted: #8d939b;
+    --hand: #e4e2dc;
+    --accent: #7fb5ab;
+    --note-bg: #1d242c;
+    --warn: #d9a45c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+    transition: background 0.6s, color 0.6s;
+  }
+  body.idle { cursor: none; }
+
+  main {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 6vw;
+    padding: 6vh 7vw;
+  }
+  main.clock-only { grid-template-columns: 1fr; justify-items: center; }
+  main.clock-only #panel { display: none; }
+
+  #dial-wrap { display: flex; justify-content: center; }
+  #dial { width: min(74vh, 50vw); height: min(74vh, 50vw); display: block; }
+  main.clock-only #dial { width: min(80vh, 80vw); height: min(80vh, 80vw); }
+
+  /* Clock styles: classic (ticks), quiet (numerals only), digital. */
+  #digital-face {
+    display: none;
+    font-size: min(30vh, 22vw); font-weight: 300; line-height: 1;
+    font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+  main.clock-only #digital-face { font-size: min(42vh, 30vw); }
+  :root[data-face="digital"] #dial { display: none; }
+  :root[data-face="digital"] #digital-face { display: block; }
+  :root:not([data-face="classic"]) #ticks { display: none; }
+  .tick { stroke: var(--tick); stroke-linecap: round; }
+  :root[data-face="classic"] .num { font-size: 12.5px; font-weight: 500; letter-spacing: 0; }
+
+  .face { fill: var(--face); stroke: var(--rim); stroke-width: 1.2; transition: fill 0.6s, stroke 0.6s; }
+  .num { fill: var(--ink); font-size: 14px; text-anchor: middle; dominant-baseline: central; font-weight: 400; letter-spacing: 0.02em; }
+  .hand { stroke: var(--hand); stroke-linecap: round; }
+  .minute { stroke: var(--accent); }
+  .hub { fill: var(--hand); }
+  .end-mark { fill: var(--accent); }
+
+  #panel { display: flex; flex-direction: column; gap: 4vh; min-width: 0; }
+  #panel > * { transition: opacity 0.8s; }
+  .big { font-size: min(9vh, 6vw); line-height: 1.1; font-weight: 600; }
+  .medium { font-size: min(5vh, 3.4vw); line-height: 1.25; white-space: pre-line; }
+  .small { font-size: min(3.6vh, 2.5vw); line-height: 1.35; color: var(--muted); }
+  .note {
+    background: var(--note-bg);
+    border-left: 0.6vh solid var(--accent);
+    border-radius: 1vh;
+    padding: 2.4vh 2.6vh;
+    font-size: min(4.4vh, 3vw);
+    line-height: 1.3;
+    white-space: pre-wrap;
+  }
+  .note.custom { border-left-color: var(--warn); }
+  .hidden { display: none !important; }
+
+  #sync {
+    position: fixed; left: 2vw; bottom: 2vh;
+    font-size: 13px; color: var(--warn);
+  }
+  #help {
+    position: fixed; right: 2vw; bottom: 2vh;
+    font-size: 13px; color: var(--muted);
+    transition: opacity 0.6s;
+  }
+  body.idle #help { opacity: 0; }
+  kbd { font-family: inherit; border: 1px solid var(--rim); border-radius: 4px; padding: 0 5px; }
+
+  dialog {
+    background: var(--face); color: var(--ink);
+    border: 1px solid var(--rim); border-radius: 12px;
+    padding: 24px 28px; width: min(520px, 92vw);
+    font-size: 15px;
+  }
+  dialog::backdrop { background: rgba(0,0,0,0.45); }
+  dialog h2 { margin: 0 0 14px; font-size: 18px; font-weight: 600; }
+  dialog label { display: grid; grid-template-columns: 130px 1fr; align-items: center; gap: 10px; margin: 8px 0; }
+  dialog input, dialog textarea, dialog select {
+    font: inherit; color: var(--ink); background: var(--bg);
+    border: 1px solid var(--rim); border-radius: 6px; padding: 6px 8px; width: 100%;
+  }
+  dialog textarea { min-height: 110px; resize: vertical; }
+  dialog .row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+  dialog button {
+    font: inherit; border-radius: 6px; padding: 6px 14px; cursor: pointer;
+    border: 1px solid var(--rim); background: var(--bg); color: var(--ink);
+  }
+  dialog button.primary { background: var(--accent); border-color: var(--accent); color: var(--face); }
+  dialog .hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+
+  @media (max-aspect-ratio: 1/1) {
+    main { grid-template-columns: 1fr; grid-template-rows: auto 1fr; justify-items: center; gap: 4vh; }
+    #dial { width: min(50vh, 80vw); height: min(50vh, 80vw); }
+    #digital-face { font-size: 24vw; }
+    #panel { text-align: center; }
+    .big { font-size: 8vw; } .medium { font-size: 4.6vw; }
+    .small { font-size: 3.4vw; } .note { font-size: 4vw; text-align: left; }
+  }
+</style>
+</head>
+<body>
+<main id="main" class="clock-only">
+  <div id="dial-wrap">
+    <svg id="dial" viewBox="-100 -100 200 200" aria-label="Clock">
+      <circle class="face" r="97"></circle>
+      <g id="ticks"></g>
+      <g id="nums"></g>
+      <circle id="end-mark" class="end-mark hidden" cx="0" cy="-90" r="2.4"></circle>
+      <line id="hour" class="hand" x1="0" y1="7" x2="0" y2="-46" stroke-width="5.5"></line>
+      <line id="minute" class="hand minute" x1="0" y1="9" x2="0" y2="-74" stroke-width="3.4"></line>
+      <circle class="hub" r="4.2"></circle>
+    </svg>
+    <div id="digital-face"></div>
+  </div>
+  <section id="panel" aria-live="polite">
+    <div id="headline" class="big"></div>
+    <div id="detail" class="medium"></div>
+    <div id="custom" class="note custom hidden"></div>
+    <div id="phase-note" class="note hidden"></div>
+    <div id="footer" class="small"></div>
+  </section>
+</main>
+<div id="sync" class="hidden"></div>
+<div id="help"><kbd>S</kbd> set up &nbsp; <kbd>A</kbd> announce &nbsp; <kbd>C</kbd> clock style &nbsp; <kbd>M</kbd> minute hand &nbsp; <kbd>T</kbd> theme &nbsp; <kbd>F</kbd> full screen</div>
+
+<dialog id="setup">
+  <form method="dialog" id="setup-form">
+    <h2>Set up the exam</h2>
+    <label>Course code <input name="code" placeholder="PHL245H1"></label>
+    <label>Course name <input name="name" placeholder="Modern Symbolic Logic"></label>
+    <label>Called a <select name="kind"><option value="exam">exam</option><option value="test">test</option><option value="quiz">quiz</option></select></label>
+    <label>Clock style <select name="face"><option value="quiet">Quiet: numerals only</option><option value="classic">Classic: with minute ticks</option><option value="digital">Digital</option></select></label>
+    <label>Minute hand <select name="hands"><option value="sweep">Sweeps continuously</option><option value="step">Moves once a minute</option></select></label>
+    <label>Room <input name="room" placeholder="EX100"></label>
+    <label>Date <input name="date" type="date"></label>
+    <label>Starts <input name="start" type="time"></label>
+    <label>Ends <input name="end" type="time"></label>
+    <label>Last-minutes notice <input name="warn" type="number" min="0" max="60" placeholder="10"></label>
+    <label>Before-start note <input name="note" placeholder="Optional, e.g. No aids permitted."></label>
+    <p class="hint">These settings are saved in the page address, so you can bookmark one link per exam.</p>
+    <div class="row">
+      <button type="button" id="clear-setup">Clock only</button>
+      <button type="button" id="copy-link">Copy link</button>
+      <button value="cancel">Cancel</button>
+      <button value="ok" class="primary">Apply</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="announce">
+  <form method="dialog">
+    <h2>Announcement</h2>
+    <textarea name="msg" placeholder="e.g. Question 3: the premise should read P → Q."></textarea>
+    <p class="hint">Shown until you clear it. Leave empty to remove. <kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>Enter</kbd> to show.</p>
+    <div class="row">
+      <button value="cancel">Cancel</button>
+      <button value="ok" class="primary">Show</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+"use strict";
+
+// ---- Settings live in the URL so each exam can be bookmarked ----
+
+const FIELDS = ["code", "name", "kind", "room", "date", "start", "end", "warn", "note", "msg", "theme", "face", "hands"];
+
+function readSettings() {
+  const p = new URLSearchParams(location.search);
+  const s = {};
+  for (const f of FIELDS) s[f] = p.get(f) || "";
+  return s;
+}
+
+function writeSettings(s) {
+  const p = new URLSearchParams();
+  for (const f of FIELDS) if (s[f]) p.set(f, s[f]);
+  const q = p.toString();
+  history.replaceState(null, "", location.pathname + (q ? "?" + q : ""));
+}
+
+let settings = readSettings();
+
+// ---- Time, corrected against an internet clock when one is reachable ----
+
+let offsetMs = 0; // add to Date.now() to get true time
+
+const now = () => new Date(Date.now() + offsetMs);
+
+async function checkTime() {
+  // Trim ISO fractions to milliseconds, which every browser parses.
+  const parseISO = s => Date.parse(s.replace(/(\.\d{3})\d+/, "$1"));
+  const sources = [
+    async () => {
+      const r = await fetch("https://time.now/developer/api/timezone/Etc/UTC", { cache: "no-store" });
+      return parseISO((await r.json()).datetime);
+    },
+    async () => {
+      const r = await fetch("https://timeapi.io/api/time/current/zone?timeZone=UTC", { cache: "no-store" });
+      return parseISO((await r.json()).dateTime + "Z");
+    },
+    async () => { // whole seconds only
+      const r = await fetch("https://www.cloudflare.com/cdn-cgi/trace", { cache: "no-store" });
+      const m = (await r.text()).match(/^ts=([\d.]+)/m);
+      return parseFloat(m[1]) * 1000;
+    },
+  ];
+  for (const source of sources) {
+    try {
+      const t0 = Date.now();
+      const remote = await source();
+      const t1 = Date.now();
+      if (!isFinite(remote)) continue;
+      const off = remote - (t0 + t1) / 2;
+      const el = document.getElementById("sync");
+      // Ignore sub-two-second differences: network delay and whole-second sources.
+      offsetMs = Math.abs(off) > 2000 ? off : 0;
+      if (Math.abs(off) > 30000) {
+        el.textContent = `This computer's clock is off by ${Math.round(Math.abs(off) / 1000)} s; showing internet time.`;
+        el.classList.remove("hidden");
+      } else {
+        el.classList.add("hidden");
+      }
+      return;
+    } catch (e) { /* try the next source; offline is fine */ }
+  }
+}
+
+// ---- Dial ----
+
+const FACES = ["quiet", "classic", "digital"];
+
+function buildDial() {
+  const ticks = document.getElementById("ticks");
+  const nums = document.getElementById("nums");
+  const ns = "http://www.w3.org/2000/svg";
+  for (let i = 0; i < 60; i++) {
+    const hour = i % 5 === 0;
+    const a = (i / 60) * 2 * Math.PI;
+    const r1 = hour ? 85 : 89, r2 = 93;
+    const l = document.createElementNS(ns, "line");
+    l.setAttribute("class", "tick");
+    l.setAttribute("x1", r1 * Math.sin(a)); l.setAttribute("y1", -r1 * Math.cos(a));
+    l.setAttribute("x2", r2 * Math.sin(a)); l.setAttribute("y2", -r2 * Math.cos(a));
+    l.setAttribute("stroke-width", hour ? 2 : 0.8);
+    ticks.appendChild(l);
+  }
+  for (let h = 1; h <= 12; h++) {
+    const a = (h / 12) * 2 * Math.PI;
+    const t = document.createElementNS(ns, "text");
+    t.setAttribute("class", "num");
+    t.dataset.angle = a;
+    t.textContent = h;
+    nums.appendChild(t);
+  }
+}
+
+function applyFace() {
+  const face = FACES.includes(settings.face) ? settings.face : "quiet";
+  document.documentElement.dataset.face = face;
+  // Classic numerals sit inside the ticks; quiet ones a little further out.
+  const r = face === "classic" ? 72 : 77;
+  for (const t of document.querySelectorAll("#nums text")) {
+    t.setAttribute("x", r * Math.sin(t.dataset.angle));
+    t.setAttribute("y", -r * Math.cos(t.dataset.angle));
+  }
+}
+
+// In "step" mode the minute hand rests on each minute, then glides to the next.
+const GLIDE_SECONDS = 2.5;
+
+function setHands(d) {
+  const sec = d.getSeconds() + d.getMilliseconds() / 1000;
+  let m;
+  if (settings.hands === "step") {
+    const p = Math.min(sec / GLIDE_SECONDS, 1);
+    m = d.getMinutes() - 1 + (1 - Math.cos(Math.PI * p)) / 2; // ease in and out
+  } else {
+    m = d.getMinutes() + sec / 60;
+  }
+  const h = (d.getHours() % 12) + m / 60;
+  document.getElementById("minute").setAttribute("transform", `rotate(${m * 6})`);
+  document.getElementById("hour").setAttribute("transform", `rotate(${h * 30})`);
+}
+
+// ---- Exam phases ----
+
+function at(date, hhmm) {
+  if (!hhmm) return null;
+  const [y, mo, d] = (date || localISODate(now())).split("-").map(Number);
+  const [h, mi] = hhmm.split(":").map(Number);
+  return new Date(y, mo - 1, d, h, mi);
+}
+
+function localISODate(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function fmt(d, withPeriod = true) {
+  let h = d.getHours() % 12 || 12;
+  const s = `${h}:${String(d.getMinutes()).padStart(2, "0")}`;
+  return withPeriod ? `${s} ${d.getHours() < 12 ? "a.m." : "p.m."}` : s;
+}
+
+function phaseFor(t, start, end, warnMin) {
+  if (start && t < start) return "before";
+  if (end && t >= end) return "after";
+  if (end && t >= end - warnMin * 60000) return "closing";
+  return "during";
+}
+
+function setText(id, text) {
+  const el = document.getElementById(id);
+  if (el.textContent !== text) el.textContent = text;
+  el.classList.toggle("hidden", !text);
+}
+
+function render() {
+  const t = now();
+  setText("digital-face", fmt(t, false));
+
+  const s = settings;
+  const configured = s.start || s.end || s.code || s.name || s.msg;
+  document.getElementById("main").classList.toggle("clock-only", !configured);
+  if (!configured) return;
+
+  const kind = s.kind || "exam";
+  const Kind = kind[0].toUpperCase() + kind.slice(1);
+  const start = at(s.date, s.start), end = at(s.date, s.end);
+  // An end at or before the start is the next day, as in the core's Exam::times (docket#2563).
+  if (start && end && end <= start) end.setDate(end.getDate() + 1);
+  const warnMin = s.warn === "" ? 10 : Number(s.warn);
+  const phase = phaseFor(t, start, end, warnMin);
+  const sameDay = !s.date || s.date === localISODate(t);
+  const dayText = start && !sameDay
+    ? start.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" }) + ". "
+    : "";
+
+  let headline = "", detail = "", note = "", footer = "";
+
+  if (phase === "before") {
+    headline = s.code || s.name || Kind;
+    detail = [s.code ? s.name : "", s.room ? `Room ${s.room}` : ""].filter(Boolean).join("\n");
+    note = `Please check that you are in the right room for this ${kind}.` + (s.note ? "\n" + s.note : "");
+    footer = start
+      ? `${dayText}The ${kind} begins at ${fmt(start)}` + (end ? ` and ends at ${fmt(end)}` : "")
+      : "";
+    if (footer && !footer.endsWith(".")) footer += ".";
+  } else if (phase === "during") {
+    headline = end ? `Ends at ${fmt(end)}` : "";
+  } else if (phase === "closing") {
+    headline = `Ends at ${fmt(end)}`;
+    note = `The ${kind} is nearly over. If you finish now, please stay in your seat until the end.`;
+  } else {
+    headline = "Time is up. Pens down.";
+    note = `Please stay in your seat until we collect your ${kind}. You are free to go once it has been collected.`;
+  }
+
+  setText("headline", headline);
+  setText("detail", detail);
+  setText("phase-note", note);
+  setText("custom", s.msg);
+  setText("footer", footer);
+
+  // Mark the end time on the dial once the minute hand is within an hour of it.
+  const mark = document.getElementById("end-mark");
+  mark.classList.toggle("hidden", !(end && phase !== "after" && end - t <= 60 * 60000));
+  if (end) mark.setAttribute("transform", `rotate(${end.getMinutes() * 6})`);
+}
+
+// ---- Theme ----
+
+function applyTheme() {
+  const t = settings.theme ||
+    (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  document.documentElement.dataset.theme = t;
+}
+
+// ---- Dialogs and keys ----
+
+const setup = document.getElementById("setup");
+const announce = document.getElementById("announce");
+
+function openSetup() {
+  const f = document.getElementById("setup-form");
+  for (const name of ["code", "name", "kind", "face", "hands", "room", "date", "start", "end", "warn", "note"]) {
+    f.elements[name].value = settings[name] || { kind: "exam", face: "quiet", hands: "sweep" }[name] || "";
+  }
+  if (!f.elements.date.value) f.elements.date.value = localISODate(now());
+  setup.showModal();
+}
+
+function setupValues() {
+  const f = document.getElementById("setup-form");
+  const s = { ...settings };
+  for (const name of ["code", "name", "kind", "face", "hands", "room", "date", "start", "end", "warn", "note"]) {
+    s[name] = f.elements[name].value.trim();
+  }
+  if (s.kind === "exam") s.kind = "";
+  if (s.face === "quiet") s.face = "";
+  if (s.hands === "sweep") s.hands = "";
+  return s;
+}
+
+setup.addEventListener("close", () => {
+  if (setup.returnValue === "ok") {
+    settings = setupValues();
+    writeSettings(settings);
+    applyFace();
+    render();
+  }
+});
+
+document.getElementById("clear-setup").addEventListener("click", () => {
+  settings = { theme: settings.theme, face: settings.face, hands: settings.hands };
+  writeSettings(settings);
+  setup.close("cancel");
+  render();
+});
+
+document.getElementById("copy-link").addEventListener("click", async (e) => {
+  const s = setupValues();
+  const p = new URLSearchParams();
+  for (const f of FIELDS) if (s[f]) p.set(f, s[f]);
+  const url = location.origin + location.pathname + "?" + p;
+  try { await navigator.clipboard.writeText(url); e.target.textContent = "Copied"; }
+  catch { prompt("Copy this link:", url); }
+  setTimeout(() => (e.target.textContent = "Copy link"), 1500);
+});
+
+announce.addEventListener("close", () => {
+  if (announce.returnValue === "ok") {
+    settings.msg = announce.querySelector("textarea").value.trim();
+    writeSettings(settings);
+    render();
+  }
+});
+announce.querySelector("textarea").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) announce.close("ok");
+});
+
+document.addEventListener("keydown", (e) => {
+  if (setup.open || announce.open || e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key.toLowerCase();
+  if (k === "f") {
+    document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+  } else if (k === "t") {
+    settings.theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    writeSettings(settings);
+    applyTheme();
+  } else if (k === "c") {
+    const face = document.documentElement.dataset.face;
+    const next = FACES[(FACES.indexOf(face) + 1) % FACES.length];
+    settings.face = next === "quiet" ? "" : next;
+    writeSettings(settings);
+    applyFace();
+    render();
+  } else if (k === "m") {
+    settings.hands = settings.hands === "step" ? "" : "step";
+    writeSettings(settings);
+  } else if (k === "s") {
+    e.preventDefault(); openSetup();
+  } else if (k === "a") {
+    e.preventDefault();
+    announce.querySelector("textarea").value = settings.msg || "";
+    announce.showModal();
+  } else return;
+});
+
+// Hide the cursor and key hints when the mouse is still.
+let idleTimer;
+function wake() {
+  document.body.classList.remove("idle");
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => document.body.classList.add("idle"), 3000);
+}
+document.addEventListener("mousemove", wake);
+document.addEventListener("keydown", wake);
+
+// Keep the screen awake for the whole exam.
+let wakeLock = null;
+async function holdWake() {
+  try { wakeLock = await navigator.wakeLock.request("screen"); } catch { /* unsupported */ }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") holdWake();
+});
+
+// ---- Start ----
+
+buildDial();
+applyFace();
+applyTheme();
+matchMedia("(prefers-color-scheme: light)").addEventListener("change", applyTheme);
+render();
+setInterval(render, 200);
+(function frame() { setHands(now()); requestAnimationFrame(frame); })();
+wake();
+holdWake();
+checkTime();
+setInterval(checkTime, 30 * 60000);
+</script>
+</body>
+</html>
