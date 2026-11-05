@@ -1,2 +1,5 @@
 # macOS noise
 .DS_Store
+
+# Draft redesign, built by build_syllabi.py; local only, not published
+redesign-v2/
